@@ -1,8 +1,0 @@
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\bin\Debug\Data.dll.config
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\bin\Debug\Data.dll
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\bin\Debug\Data.pdb
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\bin\Debug\Entidades.dll
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\bin\Debug\Entidades.pdb
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\obj\Debug\Data.dll
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Data\obj\Debug\Data.pdb
