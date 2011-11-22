@@ -136,10 +136,6 @@
       <Project>{D566BF34-60F7-4A1A-A4F4-8C2A2C2F4D99}</Project>
       <Name>Email</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{4A2F5C7E-553B-41CB-98E3-5C47B8766BD9}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

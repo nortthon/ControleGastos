@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="controle_gastosModelStoreContainer" CdmEntityContainer="controle_gastosEntities">
+    <EntitySetMapping Name="tb_categoria">
+      <EntityTypeMapping TypeName="controle_gastosModel.tb_categoria">
+        <MappingFragment StoreEntitySet="tb_categoria">
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="cat_nome" ColumnName="cat_nome" />
+          <ScalarProperty Name="fk_usu_id" ColumnName="fk_usu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_conta">
+      <EntityTypeMapping TypeName="controle_gastosModel.tb_conta">
+        <MappingFragment StoreEntitySet="tb_conta">
+          <ScalarProperty Name="cont_id" ColumnName="cont_id" />
+          <ScalarProperty Name="cont_nome" ColumnName="cont_nome" />
+          <ScalarProperty Name="cont_descricao" ColumnName="cont_descricao" />
+          <ScalarProperty Name="fk_usu_id" ColumnName="fk_usu_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo">
+      <EntityTypeMapping TypeName="controle_gastosModel.tb_tipo">
+        <MappingFragment StoreEntitySet="tb_tipo">
+          <ScalarProperty Name="tip_id" ColumnName="tip_id" />
+          <ScalarProperty Name="tip_nome" ColumnName="tip_nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_transacao">
+      <EntityTypeMapping TypeName="controle_gastosModel.tb_transacao">
+        <MappingFragment StoreEntitySet="tb_transacao">
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="trans_data" ColumnName="trans_data" />
+          <ScalarProperty Name="trans_valor" ColumnName="trans_valor" />
+          <ScalarProperty Name="trans_descricao" ColumnName="trans_descricao" />
+          <ScalarProperty Name="fk_tip_id" ColumnName="fk_tip_id" />
+          <ScalarProperty Name="fk_cont_id" ColumnName="fk_cont_id" />
+          <ScalarProperty Name="fk_cat_id" ColumnName="fk_cat_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario">
+      <EntityTypeMapping TypeName="controle_gastosModel.tb_usuario">
+        <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="usu_id" ColumnName="usu_id" />
+          <ScalarProperty Name="usu_nome" ColumnName="usu_nome" />
+          <ScalarProperty Name="usu_email" ColumnName="usu_email" />
+          <ScalarProperty Name="usu_login" ColumnName="usu_login" />
+          <ScalarProperty Name="usu_senha" ColumnName="usu_senha" />
+          <ScalarProperty Name="usu_status" ColumnName="usu_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

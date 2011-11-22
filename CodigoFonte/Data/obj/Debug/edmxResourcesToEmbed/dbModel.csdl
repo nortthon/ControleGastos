@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="controle_gastosModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="controle_gastosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_categoria" EntityType="controle_gastosModel.tb_categoria" />
+    <EntitySet Name="tb_conta" EntityType="controle_gastosModel.tb_conta" />
+    <EntitySet Name="tb_tipo" EntityType="controle_gastosModel.tb_tipo" />
+    <EntitySet Name="tb_transacao" EntityType="controle_gastosModel.tb_transacao" />
+    <EntitySet Name="tb_usuario" EntityType="controle_gastosModel.tb_usuario" />
+    <AssociationSet Name="FK__tb_catego__fk_us__1B0907CE" Association="controle_gastosModel.FK__tb_catego__fk_us__1B0907CE">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_categoria" EntitySet="tb_categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_transa__fk_ca__276EDEB3" Association="controle_gastosModel.FK__tb_transa__fk_ca__276EDEB3">
+      <End Role="tb_categoria" EntitySet="tb_categoria" />
+      <End Role="tb_transacao" EntitySet="tb_transacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_conta__fk_usu__1FCDBCEB" Association="controle_gastosModel.FK__tb_conta__fk_usu__1FCDBCEB">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_conta" EntitySet="tb_conta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_transa__fk_co__267ABA7A" Association="controle_gastosModel.FK__tb_transa__fk_co__267ABA7A">
+      <End Role="tb_conta" EntitySet="tb_conta" />
+      <End Role="tb_transacao" EntitySet="tb_transacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_transa__fk_ti__25869641" Association="controle_gastosModel.FK__tb_transa__fk_ti__25869641">
+      <End Role="tb_tipo" EntitySet="tb_tipo" />
+      <End Role="tb_transacao" EntitySet="tb_transacao" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tb_categoria">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fk_usu_id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tb_usuario" Relationship="controle_gastosModel.FK__tb_catego__fk_us__1B0907CE" FromRole="tb_categoria" ToRole="tb_usuario" />
+    <NavigationProperty Name="tb_transacao" Relationship="controle_gastosModel.FK__tb_transa__fk_ca__276EDEB3" FromRole="tb_categoria" ToRole="tb_transacao" />
+  </EntityType>
+  <EntityType Name="tb_conta">
+    <Key>
+      <PropertyRef Name="cont_id" />
+    </Key>
+    <Property Name="cont_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cont_nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cont_descricao" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="fk_usu_id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tb_usuario" Relationship="controle_gastosModel.FK__tb_conta__fk_usu__1FCDBCEB" FromRole="tb_conta" ToRole="tb_usuario" />
+    <NavigationProperty Name="tb_transacao" Relationship="controle_gastosModel.FK__tb_transa__fk_co__267ABA7A" FromRole="tb_conta" ToRole="tb_transacao" />
+  </EntityType>
+  <EntityType Name="tb_tipo">
+    <Key>
+      <PropertyRef Name="tip_id" />
+    </Key>
+    <Property Name="tip_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tip_nome" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tb_transacao" Relationship="controle_gastosModel.FK__tb_transa__fk_ti__25869641" FromRole="tb_tipo" ToRole="tb_transacao" />
+  </EntityType>
+  <EntityType Name="tb_transacao">
+    <Key>
+      <PropertyRef Name="trans_id" />
+    </Key>
+    <Property Name="trans_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_data" Type="DateTime" Nullable="false" />
+    <Property Name="trans_valor" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="trans_descricao" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="fk_tip_id" Type="Int64" Nullable="false" />
+    <Property Name="fk_cont_id" Type="Int64" Nullable="false" />
+    <Property Name="fk_cat_id" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tb_categoria" Relationship="controle_gastosModel.FK__tb_transa__fk_ca__276EDEB3" FromRole="tb_transacao" ToRole="tb_categoria" />
+    <NavigationProperty Name="tb_conta" Relationship="controle_gastosModel.FK__tb_transa__fk_co__267ABA7A" FromRole="tb_transacao" ToRole="tb_conta" />
+    <NavigationProperty Name="tb_tipo" Relationship="controle_gastosModel.FK__tb_transa__fk_ti__25869641" FromRole="tb_transacao" ToRole="tb_tipo" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="usu_id" />
+    </Key>
+    <Property Name="usu_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usu_nome" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="usu_email" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="usu_login" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="usu_senha" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="usu_status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tb_categoria" Relationship="controle_gastosModel.FK__tb_catego__fk_us__1B0907CE" FromRole="tb_usuario" ToRole="tb_categoria" />
+    <NavigationProperty Name="tb_conta" Relationship="controle_gastosModel.FK__tb_conta__fk_usu__1FCDBCEB" FromRole="tb_usuario" ToRole="tb_conta" />
+  </EntityType>
+  <Association Name="FK__tb_catego__fk_us__1B0907CE">
+    <End Role="tb_usuario" Type="controle_gastosModel.tb_usuario" Multiplicity="1" />
+    <End Role="tb_categoria" Type="controle_gastosModel.tb_categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="tb_categoria">
+        <PropertyRef Name="fk_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_transa__fk_ca__276EDEB3">
+    <End Role="tb_categoria" Type="controle_gastosModel.tb_categoria" Multiplicity="1" />
+    <End Role="tb_transacao" Type="controle_gastosModel.tb_transacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_categoria">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="tb_transacao">
+        <PropertyRef Name="fk_cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_conta__fk_usu__1FCDBCEB">
+    <End Role="tb_usuario" Type="controle_gastosModel.tb_usuario" Multiplicity="1" />
+    <End Role="tb_conta" Type="controle_gastosModel.tb_conta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="usu_id" />
+      </Principal>
+      <Dependent Role="tb_conta">
+        <PropertyRef Name="fk_usu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_transa__fk_co__267ABA7A">
+    <End Role="tb_conta" Type="controle_gastosModel.tb_conta" Multiplicity="1" />
+    <End Role="tb_transacao" Type="controle_gastosModel.tb_transacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_conta">
+        <PropertyRef Name="cont_id" />
+      </Principal>
+      <Dependent Role="tb_transacao">
+        <PropertyRef Name="fk_cont_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tb_transa__fk_ti__25869641">
+    <End Role="tb_tipo" Type="controle_gastosModel.tb_tipo" Multiplicity="1" />
+    <End Role="tb_transacao" Type="controle_gastosModel.tb_transacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo">
+        <PropertyRef Name="tip_id" />
+      </Principal>
+      <Dependent Role="tb_transacao">
+        <PropertyRef Name="fk_tip_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
