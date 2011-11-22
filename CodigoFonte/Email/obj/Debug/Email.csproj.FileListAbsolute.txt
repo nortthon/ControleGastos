@@ -1,0 +1,5 @@
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Email\bin\Debug\Email.dll
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Email\bin\Debug\Email.pdb
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Email\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Email\obj\Debug\Email.dll
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Email\obj\Debug\Email.pdb
