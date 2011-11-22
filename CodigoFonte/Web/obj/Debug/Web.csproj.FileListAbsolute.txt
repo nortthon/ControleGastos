@@ -1,0 +1,5 @@
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Web.dll
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Web.pdb
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\Web.dll
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\Web.pdb
