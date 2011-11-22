@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{68E6590C-11E1-43A4-B45D-648382725E67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{B30E00E5-D74A-4567-B7B2-23555939FD22}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -58,6 +60,10 @@ Global
 		{68E6590C-11E1-43A4-B45D-648382725E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68E6590C-11E1-43A4-B45D-648382725E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68E6590C-11E1-43A4-B45D-648382725E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30E00E5-D74A-4567-B7B2-23555939FD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30E00E5-D74A-4567-B7B2-23555939FD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30E00E5-D74A-4567-B7B2-23555939FD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30E00E5-D74A-4567-B7B2-23555939FD22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
