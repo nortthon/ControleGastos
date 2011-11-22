@@ -1,0 +1,163 @@
+/* Reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,font,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;font-weight:inherit;font-style:inherit;font-family:inherit;text-decoration:none;color:gray;list-style:none;}
+
+/* Body */
+body{
+    background: #fff;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    line-height: 21px;
+    color: #595959;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sombra */
+.boxShadow{box-shadow: 0px 0px 2px 1px #444;-moz-box-shadow: 0px 0px 2px 1px #444;-webkit-box-shadow: 0px 0px 2px 1px #444;}
+
+/* Margins, Padding e Posicionamento */
+.right, .alignright{float: right !important;}
+.left, .alignleft{float: left !important;}
+img.alignright{ margin-left: 10px !important}
+img.alignleft{ margin-right: 10px !important}
+.cLeft{clear: left !important;}
+.cRight{clear: right !important;}
+.cBoth, .clean{clear: both !important;}
+.esconder, .hide{display: none !important;}
+.block{display: block !important;}
+.relative{position: relative;}
+.absolute{position: absolute;}
+.mBoth{margin: 1px;}
+.mT5{margin-top: 5px;}
+.mT10{margin-top: 10px;}
+.mB5{margin-bottom: 5px;}
+.mB10{margin-bottom: 10px;}
+.mL5{margin-left: 5px;}
+.mL10{margin-left: 10px;}
+.mR5{margin-right: 5px;}
+.mR10{margin-right: 10px;}
+.p10{padding: 10px;}
+.p5{padding: 5px;}
+
+/* Borda Arredondada */
+.radiusTopLeft{-webkit-border-top-left-radius: 10px;-moz-border-radius-topleft: 10px;border-top-left-radius: 10px;}
+.radiusTopRight{-webkit-border-top-right-radius: 10px;-moz-border-radius-topright: 10px;border-top-right-radius: 10px;}
+.radiusBottomRight{-webkit-border-bottom-right-radius: 10px;-moz-border-radius-bottomright: 10px;border-bottom-right-radius: 10px;}
+.radiusBottomLeft{-webkit-border-bottom-left-radius: 10px;-moz-border-radius-bottomleft: 10px;border-bottom-left-radius: 10px;}
+
+/* Borda */
+.borderLeft{border-left:1px solid #ccc;}
+.borderRight{border-right:1px solid #ccc;}
+.borderTop{border-top:1px solid #ccc;}
+.borderBottom{border-bottom:1px solid #ccc;}
+
+/* Text Align */
+.tC{text-align: center;}
+.tR{text-align: right;}
+.tL{text-align: left;}
+
+/* Font */
+small{font-size: 9px;}
+.bold{font-weight: bold !important;}
+
+/* Font Shadow */
+.textShadow{text-shadow: 1px 1px 1px #444;}
+
+/* Font Collors */
+.branco{color: #fff;}
+.grafite{color: #333;}
+.cinza{color: #666;}
+
+/* Links */
+a{color: #444;}
+a:hover{color: #000;}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+    color: #303030;
+}
+h1{font-size: 19px;}
+h2{font-size: 17px;}
+h3{font-size: 16px;}
+h4{font-size: 15px;}
+h5{font-size: 13px;}
+h6{font-size: 12px;}
+p{padding: 5px 0px 5px 5px;}
+
+
+/*
+ * Páginas
+ */
+div#header{
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 11;
+    background: #666;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+div#header div#bar{
+    width: 1000px;
+    margin: auto;
+    background: #999;
+}
+
+div#header div#bar ul li{
+	display: inline;
+}
+
+div#pageWrap{
+	width: 1000px;
+	margin: 15px auto;
+}
+
+div#pageWrap div#painelEsquerda{
+	background: #dedada;
+	width: 180px;
+	float: left;
+	margin: 10px 15px 0 0;
+	padding: 5px;
+}
+
+div#pageWrap div#painelPage{
+	width: 780px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+div#pageWrap div#rodape{
+	clear: both;
+	border-top: 1px solid #999;
+	width: 100%;
+	text-align: center;
+}
+
+/*
+ * Formularios
+ */
+form label{
+	color: #333;
+	font-weight: bold;
+}
+form input{
+	border: 1px solid #333;
+	border-radius: 10px;
+	color: #666;
+}
+
+/*
+ * Fieldset
+ */
+fieldset{
+	border: 1px solid #333;
+	padding: 2px;
+}
+fieldset legend{
+	margin-left: 15px;
+	padding: 0 5px 0 5px;
+	font-weight: bold;
+	font-size: 16px;
+}
