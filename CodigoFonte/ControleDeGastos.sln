@@ -10,6 +10,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService\",
 		SccLocalPath = "Svn"
 		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{68E6590C-11E1-43A4-B45D-648382725E67}|Entidades.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebService"
 		Debug.AspNetCompiler.PhysicalPath = "WebService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebService\"

@@ -10,7 +10,6 @@
 using System;
 using System.Data.Objects;
 using System.Data.EntityClient;
-using Entidades;
 
 namespace Data
 {

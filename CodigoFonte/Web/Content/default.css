@@ -28,6 +28,7 @@ img.alignleft{ margin-right: 10px !important}
 .relative{position: relative;}
 .absolute{position: absolute;}
 .mBoth{margin: 1px;}
+.mAuto{margin: auto;}
 .mT5{margin-top: 5px;}
 .mT10{margin-top: 10px;}
 .mB5{margin-bottom: 5px;}
@@ -63,7 +64,7 @@ small{font-size: 9px;}
 /* Font Shadow */
 .textShadow{text-shadow: 1px 1px 1px #444;}
 
-/* Font Collors */
+/* Font Colors */
 .branco{color: #fff;}
 .grafite{color: #333;}
 .cinza{color: #666;}
@@ -85,6 +86,11 @@ h5{font-size: 13px;}
 h6{font-size: 12px;}
 p{padding: 5px 0px 5px 5px;}
 
+/* Frescuraidas */
+hr{
+	border: 1px solid #bbb;
+	background: #bbb;
+}
 
 /*
  * Páginas
@@ -130,7 +136,7 @@ div#pageWrap div#painelPage{
 
 div#pageWrap div#rodape{
 	clear: both;
-	border-top: 1px solid #999;
+	border-top: 1px solid #bbb;
 	width: 100%;
 	text-align: center;
 }
@@ -143,8 +149,9 @@ form label{
 	font-weight: bold;
 }
 form input{
-	border: 1px solid #333;
-	border-radius: 10px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	padding: 5px;
 	color: #666;
 }
 
@@ -160,4 +167,41 @@ fieldset legend{
 	padding: 0 5px 0 5px;
 	font-weight: bold;
 	font-size: 16px;
+}
+
+/*
+ * Table
+ */
+table{
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+table th{
+	font-weight: bold;
+	background: #d0d0d0;
+	padding: 5px;
+}
+table tbody td{
+	padding: 5px;
+	background: #efefef;
+}
+table tfoot td{
+	padding: 5px;
+	background: #dedede;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*
+ * Listagem
+ */
+ol li{
+	list-style: decimal inside;
+}
+ol ol li{
+	list-style: upper-roman inside;
+	margin-left: 20px;
+}
+ul ul li{
+	margin-left: 20px;
 }
