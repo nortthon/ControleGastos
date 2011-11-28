@@ -5,8 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Controle de Gastos</title>
-    <meta name="author" content="OPE - FIT - Faculdade de Tecnologia Impacta" />
-    <link rel="stylesheet" media="screen" type="text/css" href="Content/default.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="~/Content/default.css" />
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>

@@ -15,7 +15,7 @@ body{
 /* Sombra */
 .boxShadow{box-shadow: 0px 0px 2px 1px #444;-moz-box-shadow: 0px 0px 2px 1px #444;-webkit-box-shadow: 0px 0px 2px 1px #444;}
 
-/* Margins, Padding e Posicionamento */
+/* Margins, Padding e Posicionamento */ 
 .right, .alignright{float: right !important;}
 .left, .alignleft{float: left !important;}
 img.alignright{ margin-left: 10px !important}
@@ -132,6 +132,7 @@ div#pageWrap div#painelEsquerda{
 div#pageWrap div#painelPage{
 	width: 780px;
 	float: left;
+	min-height:500px;
 	margin-bottom: 10px;
 }
 
@@ -219,5 +220,11 @@ ul ul li{
 }
 #summary ul li{
     color: #FF0000;
-    
+}
+
+#Content_summary{
+    padding: 0px 0px 15px 0px;
+}
+#Content_summary ul li{
+    color: #FF0000;
 }

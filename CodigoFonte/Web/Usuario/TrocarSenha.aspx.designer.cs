@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web {
+namespace Web.Usuario {
     
     
-    public partial class RecuperarSenha {
-        
-        /// <summary>
-        /// Head1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+    public partial class TrocarSenha {
         
         /// <summary>
         /// summary control.
@@ -31,31 +22,67 @@ namespace Web {
         protected global::System.Web.UI.WebControls.ValidationSummary summary;
         
         /// <summary>
-        /// rfvEmail control.
+        /// rfvSenhaAtual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSenhaAtual;
         
         /// <summary>
-        /// revEmail control.
+        /// txtSenhaAtual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaAtual;
         
         /// <summary>
-        /// txtEmail control.
+        /// rfvSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSenha;
+        
+        /// <summary>
+        /// txtSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSenha;
+        
+        /// <summary>
+        /// rfvConfirmarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvConfirmarSenha;
+        
+        /// <summary>
+        /// cpvSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cpvSenha;
+        
+        /// <summary>
+        /// txtConfirmarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmarSenha;
         
         /// <summary>
         /// btnEnviar control.
@@ -65,14 +92,5 @@ namespace Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEnviar;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

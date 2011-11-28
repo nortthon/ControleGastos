@@ -54,6 +54,7 @@
 					<br /><br />
 
 					<asp:Button runat="server" Text="Cadastrar" ID="btnEnviar" onclick="btnEnviar_Click" />
+                    <asp:Button runat="server" Text="Cancelar" PostBackUrl="~/Login.aspx" CausesValidation="false" />
 				</form>
 			</div>
 		</div>

@@ -14,26 +14,29 @@
 				<div class="cBoth"></div>
             </div>
         </div>
-		<div id="pageWrap">
-			<div class="boxShadow p10 mAuto" style="width:250px;">
+		<div id="pageWrap"><br /><br />
+			<div class="boxShadow p10 mAuto" style="width:350px;">
 				<p>
-					Por favor <strong>entre com seu usuário e senha</strong> nos campos abaixo.<br />
+					Entre com seu <strong>usuário e senha</strong> nos campos abaixo.<br />
 					Se você ainda não é registrado, <a href="Usuario/Cadastro.aspx">registre-se</a>.
 				</p>
-				<form action="Login.aspx" method="post">
-					<label>
-						Username<br />
-						<input name="username" type="text" />
-					</label>
+				<form runat="server" method="post">
+                    <asp:ValidationSummary runat="server" ID="summary" />
+					<label for="txtLogin">Login:
+                        <asp:RequiredFieldValidator runat="server" ID="rfvLogin" ControlToValidate="txtLogin" Text="*" ErrorMessage="O campo Login é obrigatório." />
+                    </label><br />
+					<asp:TextBox runat="server"  ID="txtLogin" />					
 					<br /><br />
-					<label>
-						Password<br />
-						<input name="password" type="password" />
-					</label>
+
+                    <label for="txtSenha">Senha:
+                        <asp:RequiredFieldValidator runat="server" ID="rfvSenha" ControlToValidate="txtSenha" Text="*" ErrorMessage="O campo Senha é obrigatório." />
+                    </label><br />
+					<asp:TextBox runat="server" TextMode="Password"  ID="txtSenha" />
+
 					<br />
 					<a href="Usuario/RecuperarSenha.aspx">Esqueceu sua senha?</a>
 					<br /><br />
-					<input type="submit" value="Efetuar login" />
+                    <asp:Button runat="server" Text="Efetuar login" ID="btnLogin" />
 				</form>
 			</div>
 		</div>
