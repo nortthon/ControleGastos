@@ -13,12 +13,9 @@
     <div id="header" class="boxShadow">
             <div id="bar" class="boxShadow p5 radiusBottomLeft radiusBottomRight">
 				<h1 class="left branco">Controle de Gastos</h1>
-				<ul class="right">
-					<li><a href="#" class="branco">Item1</a><li>
-					<li><a href="#" class="branco">Item2</a><li>
-					<li><a href="#" class="branco">Item3</a><li>
-					<li><a href="#" class="branco">Item4</a><li>
-					<li><a href="#" class="branco">Item5</a><li>
+				<ul class="right">                
+					<li class="branco">Bem-vindo(a) Lucas Augusto | <li>
+					<li><asp:HyperLink runat="server" Text="Logout" CssClass="branco" NavigateUrl="~/Logout.aspx" /><li>
 				</ul>
 				<div class="cBoth"></div>
             </div>
@@ -41,7 +38,7 @@
 				<asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
 			</div>
 			<div id="rodape">
-				Rodape, Copy?, Versionamento
+			    ©Copyright Controle de Gastos 2011, Versão 1.0 Beta
 			</div>
 		</div>
 </body>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
 
 namespace Web.Usuario
 {
@@ -12,6 +13,14 @@ namespace Web.Usuario
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                
+            }
         }
     }
 }

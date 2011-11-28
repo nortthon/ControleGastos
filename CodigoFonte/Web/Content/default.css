@@ -39,6 +39,7 @@ img.alignleft{ margin-right: 10px !important}
 .mR10{margin-right: 10px;}
 .p10{padding: 10px;}
 .p5{padding: 5px;}
+.p20{padding: 20px;}
 
 /* Borda Arredondada */
 .radiusTopLeft{-webkit-border-top-left-radius: 10px;-moz-border-radius-topleft: 10px;border-top-left-radius: 10px;}
@@ -155,6 +156,10 @@ form input{
 	color: #666;
 }
 
+form input[type="text"], input[type="password"]{
+    width: 250px;
+}
+
 /*
  * Fieldset
  */
@@ -204,4 +209,15 @@ ol ol li{
 }
 ul ul li{
 	margin-left: 20px;
+}
+
+/*
+* Summary
+*/
+#summary{
+    padding: 0px 0px 15px 0px;
+}
+#summary ul li{
+    color: #FF0000;
+    
 }

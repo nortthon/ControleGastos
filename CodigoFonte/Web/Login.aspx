@@ -10,7 +10,7 @@
     <body>
         <div id="header" class="boxShadow">
             <div id="bar" class="boxShadow p5 radiusBottomLeft radiusBottomRight">
-				<h1 class="left branco">Fluxo de Caixa</h1>
+				<h1 class="left branco">Controle de Gastos</h1>
 				<div class="cBoth"></div>
             </div>
         </div>

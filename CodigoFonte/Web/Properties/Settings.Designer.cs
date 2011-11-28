@@ -22,15 +22,5 @@ namespace Web.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:49333/WebService/WebServiceControleDeGastos.asmx")]
-        public string Web_WS_WebServiceControleDeGastos {
-            get {
-                return ((string)(this["Web_WS_WebServiceControleDeGastos"]));
-            }
-        }
     }
 }

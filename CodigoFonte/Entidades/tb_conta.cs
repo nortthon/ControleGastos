@@ -59,95 +59,15 @@ namespace Entidades
     
         public virtual tb_usuario tb_usuario
         {
-            get { return _tb_usuario; }
-            set
-            {
-                if (!ReferenceEquals(_tb_usuario, value))
-                {
-                    var previousValue = _tb_usuario;
-                    _tb_usuario = value;
-                    Fixuptb_usuario(previousValue);
-                }
-            }
-        }
-        private tb_usuario _tb_usuario;
+            get;
+            set;
+        }        
     
         public virtual ICollection<tb_transacao> tb_transacao
         {
-            get
-            {
-                if (_tb_transacao == null)
-                {
-                    var newCollection = new FixupCollection<tb_transacao>();
-                    newCollection.CollectionChanged += Fixuptb_transacao;
-                    _tb_transacao = newCollection;
-                }
-                return _tb_transacao;
-            }
-            set
-            {
-                if (!ReferenceEquals(_tb_transacao, value))
-                {
-                    var previousValue = _tb_transacao as FixupCollection<tb_transacao>;
-                    if (previousValue != null)
-                    {
-                        previousValue.CollectionChanged -= Fixuptb_transacao;
-                    }
-                    _tb_transacao = value;
-                    var newValue = value as FixupCollection<tb_transacao>;
-                    if (newValue != null)
-                    {
-                        newValue.CollectionChanged += Fixuptb_transacao;
-                    }
-                }
-            }
-        }
-        private ICollection<tb_transacao> _tb_transacao;
-
-        #endregion
-        #region Association Fixup
-    
-        private void Fixuptb_usuario(tb_usuario previousValue)
-        {
-            if (previousValue != null && previousValue.tb_conta.Contains(this))
-            {
-                previousValue.tb_conta.Remove(this);
-            }
-    
-            if (tb_usuario != null)
-            {
-                if (!tb_usuario.tb_conta.Contains(this))
-                {
-                    tb_usuario.tb_conta.Add(this);
-                }
-                if (fk_usu_id != tb_usuario.usu_id)
-                {
-                    fk_usu_id = tb_usuario.usu_id;
-                }
-            }
-        }
-    
-        private void Fixuptb_transacao(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (tb_transacao item in e.NewItems)
-                {
-                    item.tb_conta = this;
-                }
-            }
-    
-            if (e.OldItems != null)
-            {
-                foreach (tb_transacao item in e.OldItems)
-                {
-                    if (ReferenceEquals(item.tb_conta, this))
-                    {
-                        item.tb_conta = null;
-                    }
-                }
-            }
-        }
+            get;
+            set;
+        }        
 
         #endregion
     }
