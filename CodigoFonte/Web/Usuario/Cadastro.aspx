@@ -17,14 +17,15 @@
         <br />
 		<div id="pageWrap">
 			<div class="boxShadow p20 mAuto" style="width:350px;">
-				<h1>Registre-se</h1><br />                
+				<h1>Registre-se</h1> 
+                <p>Para criar seu cadastro e passar a controlar melhor o seu dinheiro basta preencher os dados abaixo. É gratuito! Repare que não guardamos dados confidenciais seus como a sua conta bancária ou seu CPF.</p>              
 				<form runat="server" method="post"> 
                     <asp:ValidationSummary runat="server" ID="summary" />
                     <label for="txtNome">Nome Completo:
                         <asp:RequiredFieldValidator runat="server" ID="rfvNome" ControlToValidate="txtNome" Text="*" ErrorMessage="O campo Nome é obrigatório." />
                     </label>
                     <br /><asp:TextBox runat="server"  ID="txtNome" />					
-					<br /><br />
+					<br />
 
                     <label for="txtEmail">Email:
                         <asp:RequiredFieldValidator runat="server" ID="rfvEmail" ControlToValidate="txtEmail" Text="*" ErrorMessage="O campo Email é obrigatório." />
@@ -32,20 +33,20 @@
                             ControlToValidate="txtEmail" ErrorMessage="O Email é inválido." />
                     </label>
                     <br /><asp:TextBox runat="server"  ID="txtEmail" />					
-					<br /><br />
+					<br />
 
                     <label for="txtLogin">Login:
                         <asp:RequiredFieldValidator runat="server" ID="rfvLogin" ControlToValidate="txtLogin" Text="*" ErrorMessage="O campo Login é obrigatório." />
                     </label><br />
 					<asp:TextBox runat="server"  ID="txtLogin" />					
-					<br /><br />
+					<br />
 
                     <label for="txtSenha">Senha:
                         <asp:RequiredFieldValidator runat="server" ID="rfvSenha" ControlToValidate="txtSenha" Text="*" ErrorMessage="O campo Senha é obrigatório." />
                     </label><br />
 					<asp:TextBox runat="server" TextMode="Password"  ID="txtSenha" />					
 
-					<br /><br />
+					<br />
                     <label for="txtConfirmarSenha">Confirmar Senha:
                         <asp:RequiredFieldValidator runat="server" ID="rfvConfirmarSenha" ControlToValidate="txtConfirmarSenha" Text="*" ErrorMessage="O campo Confirmar Senha é obrigatório." />
                         <asp:CompareValidator runat="server" ID="cpvSenha" ControlToValidate="txtConfirmarSenha" ControlToCompare="txtSenha" Text="*" ErrorMessage="As senhas não estão iguais." /> 

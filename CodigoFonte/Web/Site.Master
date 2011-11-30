@@ -6,6 +6,8 @@
 <head runat="server">
     <title>Controle de Gastos</title>
     <link rel="stylesheet" media="screen" type="text/css" href="~/Content/default.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/") %>Scripts/jquery.price_format.1.5.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
@@ -13,8 +15,8 @@
             <div id="bar" class="boxShadow p5 radiusBottomLeft radiusBottomRight">
 				<h1 class="left branco">Controle de Gastos</h1>
 				<ul class="right">                
-					<li class="branco">Bem-vindo(a) Lucas Augusto | <li>
-					<li><asp:HyperLink runat="server" Text="Logout" CssClass="branco" NavigateUrl="~/Logout.aspx" /><li>
+					<li class="branco">Bem-vindo(a) Lucas Augusto | </li>
+					<li><asp:HyperLink runat="server" Text="Logout" CssClass="branco" NavigateUrl="~/Logout.aspx" /></li>
 				</ul>
 				<div class="cBoth"></div>
             </div>

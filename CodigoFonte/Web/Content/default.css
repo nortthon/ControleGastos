@@ -150,15 +150,20 @@ form label{
 	color: #333;
 	font-weight: bold;
 }
-form input{
+form input, textarea, select{
 	border: 1px solid #999;
 	border-radius: 5px;
 	padding: 5px;
 	color: #666;
 }
 
-form input[type="text"], input[type="password"]{
+form input[type="text"], input[type="password"], select{
     width: 250px;
+}
+
+textarea{
+    width: 300px;
+    height: 60px;
 }
 
 /*
@@ -190,6 +195,9 @@ table th{
 table tbody td{
 	padding: 5px;
 	background: #efefef;
+}
+.bkbranco td{
+    background: #ffffff;
 }
 table tfoot td{
 	padding: 5px;

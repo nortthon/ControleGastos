@@ -50,9 +50,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CadastrarCategoria.aspx" />
+    <Content Include="CadastrarConta.aspx" />
+    <Content Include="CadastrarTransacao.aspx" />
     <Content Include="Content\default.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Extrato.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Receita.aspx" />
+    <Content Include="Scripts\jquery.price_format.1.5.js" />
     <Content Include="Usuario\Ativar.aspx" />
     <Content Include="Usuario\Cadastro.aspx" />
     <Content Include="Usuario\RecuperarSenha.aspx" />
@@ -70,12 +77,40 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarCategoria.aspx.cs">
+      <DependentUpon>CadastrarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastrarCategoria.aspx.designer.cs">
+      <DependentUpon>CadastrarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarConta.aspx.cs">
+      <DependentUpon>CadastrarConta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastrarConta.aspx.designer.cs">
+      <DependentUpon>CadastrarConta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CadastrarTransacao.aspx.cs">
+      <DependentUpon>CadastrarTransacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastrarTransacao.aspx.designer.cs">
+      <DependentUpon>CadastrarTransacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Extrato.aspx.cs">
+      <DependentUpon>Extrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Extrato.aspx.designer.cs">
+      <DependentUpon>Extrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -84,11 +119,25 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Receita.aspx.cs">
+      <DependentUpon>Receita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receita.aspx.designer.cs">
+      <DependentUpon>Receita.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Ativar.aspx.cs">
       <DependentUpon>Ativar.aspx</DependentUpon>
@@ -138,9 +187,7 @@
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

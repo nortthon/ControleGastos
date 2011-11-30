@@ -17,8 +17,8 @@
 		<div id="pageWrap"><br /><br />
 			<div class="boxShadow p10 mAuto" style="width:350px;">
 				<p>
-					Entre com seu <strong>usuário e senha</strong> nos campos abaixo.<br />
-					Se você ainda não é registrado, <a href="Usuario/Cadastro.aspx">registre-se</a>.
+					Se você já é cadastrado basta preencher seu Login e senha e clicar em <strong>Efetuar Login</strong> para continuar.<br />
+					Se você ainda não é, <a href="Usuario/Cadastro.aspx" class="bold">registre-se</a>.
 				</p>
 				<form runat="server" method="post">
                     <asp:ValidationSummary runat="server" ID="summary" />
