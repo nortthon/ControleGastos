@@ -10,7 +10,7 @@
 			<p>Curabitur metus justo, egestas et sagittis in, ornare at nunc. Vivamus nunc sapien, sodales eget lobortis non, accumsan sed diam. Aliquam et nulla id felis suscipit sollicitudin.</p>
 	</fieldset>
 	<br />
-	<form action="#" method="POST">
+	<form action="#" method="post">
 		<label>
 			Nome<br />
 			<input type="text" />

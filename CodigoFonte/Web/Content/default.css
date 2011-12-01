@@ -67,7 +67,7 @@ small{font-size: 9px;}
 
 /* Font Colors */
 .branco{color: #fff;}
-.grafite{color: #333;}
+.grafite{color: #666; padding:6px; display:block;}
 .cinza{color: #666;}
 
 /* Links */
@@ -171,7 +171,7 @@ textarea{
  */
 fieldset{
 	border: 1px solid #333;
-	padding: 2px;
+	padding: 10px;
 }
 fieldset legend{
 	margin-left: 15px;
@@ -203,7 +203,6 @@ table tfoot td{
 	padding: 5px;
 	background: #dedede;
 	font-weight: bold;
-	text-align: center;
 }
 
 /*
