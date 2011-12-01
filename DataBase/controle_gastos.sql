@@ -26,13 +26,16 @@ CREATE TABLE tb_categoria(
 CREATE TABLE tb_conta(
 	cont_id BIGINT IDENTITY(1,1) PRIMARY KEY,
 	cont_nome VARCHAR(50) NOT NULL,
+	cont_saldo DECIMAL(10,2) NOT NULL,
 	cont_descricao TEXT NULL,
 	fk_usu_id BIGINT NOT NULL REFERENCES tb_usuario(usu_id)
 );
 
 CREATE TABLE tb_transacao(
 	trans_id BIGINT IDENTITY(1,1) PRIMARY KEY,
-	trans_data DATETIME NOT NULL,
+	trans_dia INT NOT NULL,
+	trans_mes INT NOT NULL,
+	trans_ano INT NOT NULL,
 	trans_valor DECIMAL(10,2) NOT NULL,
 	trans_descricao TEXT,
 	fk_tip_id BIGINT NOT NULL REFERENCES tb_tipo(tip_id),
