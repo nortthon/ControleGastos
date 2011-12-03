@@ -22,5 +22,15 @@ namespace Web.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51159/WebService/WebService.asmx")]
+        public string Web_WebService_WebService {
+            get {
+                return ((string)(this["Web_WebService_WebService"]));
+            }
+        }
     }
 }
