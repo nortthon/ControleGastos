@@ -64,7 +64,7 @@
     <Content Include="Usuario\Ativar.aspx" />
     <Content Include="Usuario\Cadastro.aspx" />
     <Content Include="Usuario\CadastroSucesso.aspx" />
-    <Content Include="Usuario\RecuperarSenha.aspx" />
+    <Content Include="RecuperarSenha.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,11 +168,11 @@
     <Compile Include="Usuario\CadastroSucesso.aspx.designer.cs">
       <DependentUpon>CadastroSucesso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\RecuperarSenha.aspx.cs">
+    <Compile Include="RecuperarSenha.aspx.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Usuario\RecuperarSenha.aspx.designer.cs">
+    <Compile Include="RecuperarSenha.aspx.designer.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
