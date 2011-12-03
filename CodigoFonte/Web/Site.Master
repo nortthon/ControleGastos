@@ -16,7 +16,7 @@
 				<h1 class="left branco">Controle de Gastos</h1>
 				<ul class="right">                
 					<li class="branco">Bem-vindo(a) Lucas Augusto | </li>
-                    <li class="branco"><asp:HyperLink runat="server" Text="Trocar Senha" CssClass="branco" NavigateUrl="~/Usuario/TrocarSenha.aspx" /> | </li>
+                    <li class="branco"><asp:HyperLink runat="server" Text="Trocar Senha" CssClass="branco" NavigateUrl="~/TrocarSenha.aspx" /> | </li>
 					<li><asp:HyperLink runat="server" Text="Logout" CssClass="branco" NavigateUrl="~/Logout.aspx" /></li>
 				</ul>
 				<div class="cBoth"></div>
