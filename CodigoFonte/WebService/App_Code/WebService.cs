@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Entidades;
 
 /// <summary>
 /// Summary description for WebService
@@ -18,6 +19,8 @@ public class WebService : System.Web.Services.WebService {
 
     private SqlConnection conn;
     private SqlCommand cmd;
+    private String query;
+    private SqlDataReader dr;
 
     public WebService () {
 
@@ -29,7 +32,7 @@ public class WebService : System.Web.Services.WebService {
     [WebMethod]
     public bool CadastrarUsuario(string nome, string email, string login, string senha) 
     {
-        string query = @"INSERT INTO tb_usuario(usu_nome, usu_email, usu_login, usu_senha) VALUES(@nome, @email, @login, @senha)";
+        query = @"INSERT INTO tb_usuario(usu_nome, usu_email, usu_login, usu_senha) VALUES(@nome, @email, @login, @senha)";
         try
         {
             conn.Open();
@@ -54,5 +57,42 @@ public class WebService : System.Web.Services.WebService {
             conn.Close();
         }        
     }
-    
+
+    [WebMethod]
+    public Usuario EfetuarLogin(string login, string senha)
+    {
+        query = @"SELECT usu_id, usu_nome, usu_status FROM tb_usuario WHERE (usu_login = '@login') AND (usu_senha = '@senha')";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@login", login);
+            cmd.Parameters.AddWithValue("@senha", senha);
+
+            dr = cmd.ExecuteReader();
+
+            return new Usuario()
+                {
+                    Usu_id = (int)dr["usu_id"],
+                    Usu_nome = dr["usu_nome"].ToString(),
+                    Usu_status = (int)dr["usu_status"]
+                };
+        }
+        catch
+        { 
+            return null;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+
+
+
 }

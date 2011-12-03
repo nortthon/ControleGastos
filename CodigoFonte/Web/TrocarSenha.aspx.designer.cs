@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Web.Usuario {
+namespace Web {
     
     
     public partial class TrocarSenha {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entidades
 {
-    class Categoria
+    public class Categoria
     {
         private int cat_id;
         public int Cat_id

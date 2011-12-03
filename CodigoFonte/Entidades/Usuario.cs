@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entidades
 {
-    class Usuario
+    public class Usuario
     {
         private int usu_id;
         public int Usu_id

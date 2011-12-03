@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Web.Usuario
+namespace Web
 {
     public partial class TrocarSenha : System.Web.UI.Page
     {

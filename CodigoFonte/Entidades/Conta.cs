@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entidades
 {
-    class Conta
+    public class Conta
     {
         private int cont_id;
         public int Cont_id
