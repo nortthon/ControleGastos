@@ -77,9 +77,9 @@ public class WebService : System.Web.Services.WebService {
 
             return new Usuario()
                 {
-                    Usu_id = (int)dr["usu_id"],
+                    Usu_id = (Int32)dr["usu_id"],
                     Usu_nome = dr["usu_nome"].ToString(),
-                    Usu_status = (int)dr["usu_status"]
+                    Usu_status = (Int32)dr["usu_status"]
                 };
         }
         catch
