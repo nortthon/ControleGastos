@@ -63,12 +63,18 @@
     <Content Include="Scripts\jquery.price_format.1.5.js" />
     <Content Include="Usuario\Ativar.aspx" />
     <Content Include="Usuario\Cadastro.aspx" />
+    <Content Include="Usuario\CadastroSucesso.aspx" />
     <Content Include="Usuario\RecuperarSenha.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Usuario\TrocarSenha.aspx" />
+    <None Include="Web References\WebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebService\WebService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -76,6 +82,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Web References\WebService\WebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CadastrarCategoria.aspx.cs">
@@ -154,6 +161,13 @@
     <Compile Include="Usuario\Cadastro.aspx.designer.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\CadastroSucesso.aspx.cs">
+      <DependentUpon>CadastroSucesso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\CadastroSucesso.aspx.designer.cs">
+      <DependentUpon>CadastroSucesso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\RecuperarSenha.aspx.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +189,11 @@
     <Compile Include="Usuario\TrocarSenha.aspx.designer.cs">
       <DependentUpon>TrocarSenha.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -182,7 +201,19 @@
   <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:51159/WebService/WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebService\</RelPath>
+      <UpdateFromURL>http://localhost:51159/WebService/WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Web_WebService_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

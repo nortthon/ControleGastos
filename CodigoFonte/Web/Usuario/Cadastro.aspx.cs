@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Entidades;
 
 namespace Web.Usuario
 {
@@ -19,7 +18,18 @@ namespace Web.Usuario
         {
             if (IsValid)
             {
-                
+                string nome = this.txtNome.Text;
+                string email = this.txtEmail.Text;
+                string login = this.txtLogin.Text;
+                string senha = this.txtSenha.Text;
+
+                WebService.WebService ws = new WebService.WebService();
+                bool result = ws.CadastrarUsuario(nome, email, login, senha);
+
+                if (result)
+                {
+                    Response.Redirect("~/Usuario/CadastroSucesso.aspx");
+                }
             }
         }
     }
