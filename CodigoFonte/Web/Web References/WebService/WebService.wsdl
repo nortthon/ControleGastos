@@ -135,6 +135,32 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ListarCategorias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarCategoriasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarCategoriasResult" type="tns:ArrayOfCategoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Categoria" nillable="true" type="tns:Categoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Categoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cat_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cat_nome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fk_usu_id" type="s:int" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CadastrarUsuarioSoapIn">
@@ -179,6 +205,12 @@
   <wsdl:message name="AlterarSenhaSoapOut">
     <wsdl:part name="parameters" element="tns:AlterarSenhaResponse" />
   </wsdl:message>
+  <wsdl:message name="ListarCategoriasSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarCategorias" />
+  </wsdl:message>
+  <wsdl:message name="ListarCategoriasSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarCategoriasResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="CadastrarUsuario">
       <wsdl:input message="tns:CadastrarUsuarioSoapIn" />
@@ -207,6 +239,10 @@
     <wsdl:operation name="AlterarSenha">
       <wsdl:input message="tns:AlterarSenhaSoapIn" />
       <wsdl:output message="tns:AlterarSenhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCategorias">
+      <wsdl:input message="tns:ListarCategoriasSoapIn" />
+      <wsdl:output message="tns:ListarCategoriasSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -274,6 +310,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ListarCategorias">
+      <soap:operation soapAction="http://tempuri.org/ListarCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -333,6 +378,15 @@
     </wsdl:operation>
     <wsdl:operation name="AlterarSenha">
       <soap12:operation soapAction="http://tempuri.org/AlterarSenha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCategorias">
+      <soap12:operation soapAction="http://tempuri.org/ListarCategorias" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

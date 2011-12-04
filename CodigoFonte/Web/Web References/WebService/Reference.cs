@@ -43,6 +43,8 @@ namespace Web.WebService {
         
         private System.Threading.SendOrPostCallback AlterarSenhaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ListarCategoriasOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +103,9 @@ namespace Web.WebService {
         
         /// <remarks/>
         public event AlterarSenhaCompletedEventHandler AlterarSenhaCompleted;
+        
+        /// <remarks/>
+        public event ListarCategoriasCompletedEventHandler ListarCategoriasCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -328,6 +333,35 @@ namespace Web.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarCategorias", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Categoria[] ListarCategorias(int usuario) {
+            object[] results = this.Invoke("ListarCategorias", new object[] {
+                        usuario});
+            return ((Categoria[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarCategoriasAsync(int usuario) {
+            this.ListarCategoriasAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void ListarCategoriasAsync(int usuario, object userState) {
+            if ((this.ListarCategoriasOperationCompleted == null)) {
+                this.ListarCategoriasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarCategoriasOperationCompleted);
+            }
+            this.InvokeAsync("ListarCategorias", new object[] {
+                        usuario}, this.ListarCategoriasOperationCompleted, userState);
+        }
+        
+        private void OnListarCategoriasOperationCompleted(object arg) {
+            if ((this.ListarCategoriasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarCategoriasCompleted(this, new ListarCategoriasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -423,6 +457,51 @@ namespace Web.WebService {
             }
             set {
                 this.usu_statusField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Categoria {
+        
+        private int cat_idField;
+        
+        private string cat_nomeField;
+        
+        private int fk_usu_idField;
+        
+        /// <remarks/>
+        public int Cat_id {
+            get {
+                return this.cat_idField;
+            }
+            set {
+                this.cat_idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Cat_nome {
+            get {
+                return this.cat_nomeField;
+            }
+            set {
+                this.cat_nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Fk_usu_id {
+            get {
+                return this.fk_usu_idField;
+            }
+            set {
+                this.fk_usu_idField = value;
             }
         }
     }
@@ -674,6 +753,32 @@ namespace Web.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void ListarCategoriasCompletedEventHandler(object sender, ListarCategoriasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarCategoriasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarCategoriasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Categoria[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Categoria[])(this.results[0]));
             }
         }
     }

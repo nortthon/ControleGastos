@@ -8,6 +8,7 @@
     <div style="margin-left:80px">
         <form runat="server" method="post"> 
             <asp:ValidationSummary runat="server" ID="summary" />
+            <asp:Label runat="server" ID="lblSuccess" />
             <label for="txtSenhaAtual">Senha Atual:
                 <asp:RequiredFieldValidator runat="server" ID="rfvSenhaAtual" ControlToValidate="txtSenhaAtual" Text="*" ErrorMessage="O campo Confirmar Senha Atual é obrigatório." />
             </label><br />
@@ -27,7 +28,8 @@
 		    <asp:TextBox runat="server" TextMode="Password"  ID="txtConfirmarSenha" />					
 		    <br /><br />
 
-		    <asp:Button runat="server" Text="Enviar" ID="btnEnviar" />
+		    <asp:Button runat="server" Text="Enviar" ID="btnEnviar" 
+                onclick="btnEnviar_Click" />
             <asp:Button runat="server" Text="Cancelar" PostBackUrl="javascript:history.back();" CausesValidation="false" />
 	    </form>
     </div>

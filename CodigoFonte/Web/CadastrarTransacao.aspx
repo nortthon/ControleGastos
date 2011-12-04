@@ -7,9 +7,9 @@
         $("#Content_txtData").datepicker({ dateFormat: 'dd/mm/yy', navigationAsDateFormat: true });
 
         $('#Content_txtValor').priceFormat({
-            prefix: '+ R$ ',
+            prefix: '- R$ ',
             thousandsSeparator: '',
-            centsSeparator: ',',
+            centsSeparator: ','
         });
     });
   </script>
@@ -31,21 +31,13 @@
             <label for="txtConta">Conta:
                 <asp:RequiredFieldValidator runat="server" ID="rfvConta" ControlToValidate="ddlConta" Text="*" ErrorMessage="O campo Conta é obrigatório." />
             </label><br />
-		    <asp:DropDownList runat="server" ID="ddlConta">
-                <asp:ListItem Selected="True" />
-                <asp:ListItem Text="Conta Corrente" Value="1" />
-                <asp:ListItem Text="Poupança" Value="2" />
-            </asp:DropDownList>					
+		    <asp:DropDownList runat="server" ID="ddlConta" />					
 		    <br /><br />
             
             <label for="txtCategoria">Categoria:
                 <asp:RequiredFieldValidator runat="server" ID="rfvCategoria" ControlToValidate="ddlCategoria" Text="*" ErrorMessage="O campo Categoria é obrigatório." />
             </label><br />
-		    <asp:DropDownList runat="server" ID="ddlCategoria">
-                <asp:ListItem Selected="True" />
-                <asp:ListItem Text="Refeição" Value="1" />
-                <asp:ListItem Text="Educacional" Value="2" />
-            </asp:DropDownList>					
+		    <asp:DropDownList runat="server" ID="ddlCategoria" />					
 		    <br /><br />
 
             <label for="txtData">Data:
@@ -64,7 +56,8 @@
 		    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtDescricao" />					
 		    <br /><br />
 
-		    <asp:Button runat="server" Text="Salvar Transação" ID="btnEnviar" />
+		    <asp:Button runat="server" Text="Salvar Transação" ID="btnEnviar" 
+                onclick="btnEnviar_Click" />
             <asp:Button runat="server" Text="Cancelar" PostBackUrl="javascript:history.back();" CausesValidation="false" />
 	    </form>
     </div>

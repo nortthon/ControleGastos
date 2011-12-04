@@ -72,6 +72,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="TrocarSenha.aspx" />
+    <None Include="Web References\WebService\Categoria.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\WebService\Conta.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

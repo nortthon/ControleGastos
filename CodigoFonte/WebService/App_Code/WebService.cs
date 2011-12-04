@@ -247,4 +247,79 @@ public class WebService : System.Web.Services.WebService {
             conn.Close();
         }
     }
+
+    [WebMethod]
+    public List<Categoria> ListarCategorias(Int32 usuario)
+    {
+        query = @"SELECT cat_id, cat_nome FROM tb_categoria WHERE fk_usu_id = @usuario";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            List<Categoria> categorias = new List<Categoria>();
+
+            while (dr.Read())
+            {
+                Categoria categoria = new Categoria();
+                categoria.Cat_id = Convert.ToInt32(dr[0]);
+                categoria.Cat_nome = dr[1].ToString();
+
+                categorias.Add(categoria);
+            }
+
+            return categorias;
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    [WebMethod]
+    public bool CadastrarTransacao(Int32 tipo, Int32 conta, Int32 categoria, string data, decimal valor, string descricao)
+    {
+        query = @"INSERT INTO tb_transacao(fk_tip_id, fk_cont_id, fk_cat_id, trans_dia, trans_mes, trans_ano, trans_valor, trans_descricao)
+                VALUES (@tipo, @conta, @categoria, @dia, @mes, @ano, @valor, @descricao)";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            string[] arrayData = data.Split('/');
+
+            cmd.Parameters.AddWithValue("@tipo", tipo);
+            cmd.Parameters.AddWithValue("@conta", conta);
+            cmd.Parameters.AddWithValue("@categoria", categoria);
+            cmd.Parameters.AddWithValue("@dia", arrayData[0]);
+            cmd.Parameters.AddWithValue("@mes", arrayData[1]);
+            cmd.Parameters.AddWithValue("@ano", arrayData[2]);
+            cmd.Parameters.AddWithValue("@valor", valor);
+            cmd.Parameters.AddWithValue("@descricao", descricao);
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
 }
