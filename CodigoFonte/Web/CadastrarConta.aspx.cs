@@ -16,16 +16,26 @@ namespace Web
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            string nomeConta = this.txtConta.Text;
-            string descricao = this.txtDescricao.Text;
-            decimal saldo = Convert.ToDecimal(this.txtValor.Text);
-            Int32 usuario = Convert.ToInt32(Session["userId"]);
-
-            WebService.WebService ws = new WebService.WebService();
-            
-            if (ws.CadastrarConta(nomeConta, saldo, descricao, usuario))
+            if (IsValid)
             {
+                string nomeConta = this.txtConta.Text;
+                string descricao = this.txtDescricao.Text;
+                decimal saldo = Convert.ToDecimal(this.txtValor.Text.Replace("R$ ", ""));
+                Int32 usuario = Convert.ToInt32(Session["userId"]);
 
+                WebService.WebService ws = new WebService.WebService();
+
+                if (ws.CadastrarConta(nomeConta, saldo, descricao, usuario))
+                {
+                    this.txtConta.Text = "";
+                    this.txtDescricao.Text = "";
+                    this.txtValor.Text = "";
+                    this.lblSuccess.Text = "Nova conta criada com sucesso.";
+                }
+                else
+                {
+                    Response.Redirect("~/Error.aspx");
+                }
             }
 
         }

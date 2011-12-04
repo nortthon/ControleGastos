@@ -126,4 +126,125 @@ public class WebService : System.Web.Services.WebService {
         }
     }
 
+    [WebMethod]
+    public bool CadastrarCategoria(string categoria, Int32 usuario)
+    {
+        query = @"INSERT INTO tb_categoria (cat_nome, fk_usu_id)
+                VALUES (@categoria, @usuario)";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@categoria", categoria);
+            cmd.Parameters.AddWithValue("@usuario", usuario);            
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    [WebMethod]
+    public bool CadastrarReceita(Int32 idConta, decimal valor)
+    {
+        query = @"UPDATE tb_conta SET cont_saldo = cont_saldo + @valor WHERE cont_id = @idConta";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@valor", valor);
+            cmd.Parameters.AddWithValue("@idConta", idConta);
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    [WebMethod]
+    public List<Conta> ListarContas(Int32 usuario)
+    {
+        query = @"SELECT cont_id, cont_nome FROM tb_conta WHERE fk_usu_id = @usuario";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            List<Conta> contas = new List<Conta>();
+
+            while (dr.Read())
+            {
+                Conta conta = new Conta();
+                conta.Cont_id = Convert.ToInt32(dr[0]);
+                conta.Cont_nome = dr[1].ToString();
+
+                contas.Add(conta);
+            }
+
+            return contas;
+        }
+        catch
+        {
+            return null;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
+
+    [WebMethod]
+    public bool AlterarSenha(Int32 usuario, string senhaAntiga, string senhaNova)
+    {
+        query = @"UPDATE tb_Usuario SET usu_senha = @senhaNova WHERE usu_id = @usuario AND usu_senha = @senhaAntiga";
+        try
+        {
+            conn.Open();
+
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+
+            cmd.Parameters.AddWithValue("@senhaNova", senhaNova);
+            cmd.Parameters.AddWithValue("@senhaAntiga", senhaAntiga);
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
 }

@@ -7,8 +7,8 @@ namespace Entidades
 {
     public class Conta
     {
-        private int cont_id;
-        public int Cont_id
+        private Int32 cont_id;
+        public Int32 Cont_id
         {
             get { return cont_id; }
             set { cont_id = value; }
@@ -35,8 +35,8 @@ namespace Entidades
             set { cont_descricao = value; }
         }
 
-        private int fk_usu_id;
-        public int Fk_usu_id
+        private Int32 fk_usu_id;
+        public Int32 Fk_usu_id
         {
             get { return fk_usu_id; }
             set { fk_usu_id = value; }

@@ -5,13 +5,14 @@
     <div style="margin-left:80px">
         <form id="Form1" runat="server" method="post"> 
             <asp:ValidationSummary runat="server" ID="summary" />
+            <asp:Label runat="server" ID="lblSuccess" />
             <label for="txtConta">Categoria:
                 <asp:RequiredFieldValidator runat="server" ID="rfvCategoria" ControlToValidate="txtCategoria" Text="*" ErrorMessage="O campo Categoria é obrigatório." />
             </label><br />
 		    <asp:TextBox runat="server"  ID="txtCategoria" />					
 		    <br /><br />
 
-		    <asp:Button runat="server" Text="Criar Categoria" ID="btnEnviar" />
+		    <asp:Button runat="server" Text="Criar Categoria" ID="btnEnviar" onclick="btnEnviar_Click" />
             <asp:Button runat="server" Text="Cancelar" PostBackUrl="javascript:history.back();" CausesValidation="false" />
 	    </form>
     </div>

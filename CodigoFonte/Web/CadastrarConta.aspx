@@ -15,6 +15,7 @@
     <div style="margin-left:80px">
         <form runat="server" method="post"> 
             <asp:ValidationSummary runat="server" ID="summary" />
+            <asp:Label runat="server" ID="lblSuccess" />
             <label for="txtConta">Conta:
                 <asp:RequiredFieldValidator runat="server" ID="rfvConta" ControlToValidate="txtConta" Text="*" ErrorMessage="O campo Conta é obrigatório." />
             </label><br />

@@ -15,14 +15,11 @@
     <div style="margin-left:80px">
         <form id="Form1" runat="server" method="post"> 
             <asp:ValidationSummary runat="server" ID="summary" />
+            <asp:Label runat="server" ID="lblSuccess" />
             <label for="txtConta">Conta:
                 <asp:RequiredFieldValidator runat="server" ID="rfvConta" ControlToValidate="ddlConta" Text="*" ErrorMessage="O campo Conta é obrigatório." />
             </label><br />
-		    <asp:DropDownList runat="server" ID="ddlConta">
-                <asp:ListItem Selected="True" />
-                <asp:ListItem Text="Conta Corrente" Value="1" />
-                <asp:ListItem Text="Poupança" Value="2" />
-            </asp:DropDownList>					
+		    <asp:DropDownList runat="server" ID="ddlConta" />					
 		    <br /><br />
 
             <label for="txtConta">Valor:
@@ -30,10 +27,10 @@
             </label><br />
 		    <asp:TextBox runat="server"  ID="txtValor" />
             <br />
-            <span><strong>Saldo Atual:</strong> R$ 5198,00</span>					
+            <!--<span><strong>Saldo Atual:</strong> R$ 5198,00</span>-->
 		    <br /><br />
 
-		    <asp:Button runat="server" Text="Salvar" ID="btnEnviar" />
+		    <asp:Button runat="server" Text="Salvar" ID="btnEnviar" onclick="btnEnviar_Click" />
             <asp:Button ID="Button1" runat="server" Text="Cancelar" PostBackUrl="javascript:history.back();" CausesValidation="false" />
 	    </form>
     </div>
