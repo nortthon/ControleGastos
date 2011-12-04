@@ -64,6 +64,7 @@
     <Content Include="Usuario\Ativar.aspx" />
     <Content Include="Usuario\Cadastro.aspx" />
     <Content Include="Usuario\CadastroSucesso.aspx" />
+    <Content Include="Usuario\ContaNaoAtivada.aspx" />
     <Content Include="Usuario\RecuperarSenha.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\WebService.disco" />
+    <Content Include="Usuario\UsuarioInvalido.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -171,6 +173,13 @@
     <Compile Include="Usuario\CadastroSucesso.aspx.designer.cs">
       <DependentUpon>CadastroSucesso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\ContaNaoAtivada.aspx.cs">
+      <DependentUpon>ContaNaoAtivada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\ContaNaoAtivada.aspx.designer.cs">
+      <DependentUpon>ContaNaoAtivada.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\RecuperarSenha.aspx.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +200,13 @@
     </Compile>
     <Compile Include="TrocarSenha.aspx.designer.cs">
       <DependentUpon>TrocarSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\UsuarioInvalido.aspx.cs">
+      <DependentUpon>UsuarioInvalido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\UsuarioInvalido.aspx.designer.cs">
+      <DependentUpon>UsuarioInvalido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\WebService\Reference.cs">
       <AutoGen>True</AutoGen>

@@ -31,7 +31,8 @@
 		    <asp:TextBox TextMode="MultiLine" runat="server" ID="txtDescricao" />					
 		    <br /><br />
 
-		    <asp:Button runat="server" Text="Criar Conta" ID="btnEnviar" />
+		    <asp:Button runat="server" Text="Criar Conta" ID="btnEnviar" 
+                onclick="btnEnviar_Click" />
             <asp:Button runat="server" Text="Cancelar" PostBackUrl="javascript:history.back();" CausesValidation="false" />
 	    </form>
     </div>

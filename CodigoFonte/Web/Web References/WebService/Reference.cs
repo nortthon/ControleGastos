@@ -33,6 +33,8 @@ namespace Web.WebService {
         
         private System.Threading.SendOrPostCallback EfetuarLoginOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CadastrarContaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace Web.WebService {
         
         /// <remarks/>
         public event EfetuarLoginCompletedEventHandler EfetuarLoginCompleted;
+        
+        /// <remarks/>
+        public event CadastrarContaCompletedEventHandler CadastrarContaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -140,6 +145,41 @@ namespace Web.WebService {
             if ((this.EfetuarLoginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EfetuarLoginCompleted(this, new EfetuarLoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarConta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool CadastrarConta(string nome, decimal saldo, string descricao, int fk_usu_id) {
+            object[] results = this.Invoke("CadastrarConta", new object[] {
+                        nome,
+                        saldo,
+                        descricao,
+                        fk_usu_id});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CadastrarContaAsync(string nome, decimal saldo, string descricao, int fk_usu_id) {
+            this.CadastrarContaAsync(nome, saldo, descricao, fk_usu_id, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarContaAsync(string nome, decimal saldo, string descricao, int fk_usu_id, object userState) {
+            if ((this.CadastrarContaOperationCompleted == null)) {
+                this.CadastrarContaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarContaOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarConta", new object[] {
+                        nome,
+                        saldo,
+                        descricao,
+                        fk_usu_id}, this.CadastrarContaOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarContaOperationCompleted(object arg) {
+            if ((this.CadastrarContaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarContaCompleted(this, new CadastrarContaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -291,6 +331,32 @@ namespace Web.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Usuario)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void CadastrarContaCompletedEventHandler(object sender, CadastrarContaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CadastrarContaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CadastrarContaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }

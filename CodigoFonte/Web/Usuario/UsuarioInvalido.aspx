@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroSucesso.aspx.cs" Inherits="Web.Usuario.CadastroSucesso" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsuarioInvalido.aspx.cs" Inherits="Web.Usuario.UsuarioInvalido" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -17,8 +17,8 @@
 		<div id="pageWrap"><br /><br />
 			<div class="boxShadow p10 mAuto" style="width:350px;">
 				<p style="text-align:center">
-					Seu cadastro foi realizado com sucesso.<br />
-                    Acesse seu email e siga as instruções para ativar sua conta.
+					Os dados de acesso são inválidos.<br />
+                    Verifique o Login e Senha estão corretos e tente novamente.
 				</p>
 				<form id="Form1" runat="server" style="text-align:center">
                     <asp:Button ID="btnLogin" runat="server" Text="Efetuar login" PostBackUrl="~/Login.aspx" />

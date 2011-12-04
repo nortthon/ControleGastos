@@ -19,8 +19,7 @@ public class WebService : System.Web.Services.WebService {
 
     private SqlConnection conn;
     private SqlCommand cmd;
-    private String query;
-    private SqlDataReader dr;
+    private String query = string.Empty;
 
     public WebService () {
 
@@ -61,7 +60,7 @@ public class WebService : System.Web.Services.WebService {
     [WebMethod]
     public Usuario EfetuarLogin(string login, string senha)
     {
-        query = @"SELECT usu_id, usu_nome, usu_status FROM tb_usuario WHERE (usu_login = '@login') AND (usu_senha = '@senha')";
+        query = @"SELECT usu_id, usu_nome, usu_status FROM tb_usuario WHERE usu_login LIKE @login AND usu_senha LIKE @senha";
         try
         {
             conn.Open();
@@ -73,14 +72,19 @@ public class WebService : System.Web.Services.WebService {
             cmd.Parameters.AddWithValue("@login", login);
             cmd.Parameters.AddWithValue("@senha", senha);
 
-            dr = cmd.ExecuteReader();
+            SqlDataReader dr = cmd.ExecuteReader();
 
-            return new Usuario()
-                {
-                    Usu_id = (Int32)dr["usu_id"],
-                    Usu_nome = dr["usu_nome"].ToString(),
-                    Usu_status = (Int32)dr["usu_status"]
-                };
+            Usuario usuario = null;
+
+            while (dr.Read())
+            {
+                usuario = new Usuario();
+                usuario.Usu_id = Convert.ToInt32(dr[0]);
+                usuario.Usu_nome = dr[1].ToString();
+                usuario.Usu_status = Convert.ToInt32(dr[2]);
+            }
+
+            return usuario;                
         }
         catch
         { 
@@ -92,7 +96,34 @@ public class WebService : System.Web.Services.WebService {
         }
     }
 
+    [WebMethod]
+    public bool CadastrarConta(string nome, decimal saldo, string descricao, Int32 fk_usu_id)
+    {
+        query = @"INSERT INTO tb_conta (cont_nome, cont_saldo, cont_descricao, fk_usu_id)
+                VALUES (@nome, @saldo, @descricao, @usuario)";
+        try
+        {
+            conn.Open();
 
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
 
+            cmd.Parameters.AddWithValue("@nome", nome);
+            cmd.Parameters.AddWithValue("@saldo", saldo);
+            cmd.Parameters.AddWithValue("@descricao", descricao);
+            cmd.Parameters.AddWithValue("@usuario", fk_usu_id);
+
+            return (cmd.ExecuteNonQuery() > 0);
+        }
+        catch
+        {
+            return false;
+        }
+        finally
+        {
+            conn.Close();
+        }
+    }
 
 }

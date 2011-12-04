@@ -7,8 +7,8 @@ namespace Entidades
 {
     public class Usuario
     {
-        private int usu_id;
-        public int Usu_id
+        private Int32 usu_id;
+        public Int32 Usu_id
         {
             get { return usu_id; }
             set { usu_id = value; }
@@ -42,8 +42,8 @@ namespace Entidades
             set { usu_senha = value; }
         }
 
-        private int usu_status;
-        public int Usu_status
+        private Int32 usu_status;
+        public Int32 Usu_status
         {
             get { return usu_status; }
             set { usu_status = value; }

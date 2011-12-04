@@ -13,5 +13,21 @@ namespace Web
         {
 
         }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            string nomeConta = this.txtConta.Text;
+            string descricao = this.txtDescricao.Text;
+            decimal saldo = Convert.ToDecimal(this.txtValor.Text);
+            Int32 usuario = Convert.ToInt32(Session["userId"]);
+
+            WebService.WebService ws = new WebService.WebService();
+            
+            if (ws.CadastrarConta(nomeConta, saldo, descricao, usuario))
+            {
+
+            }
+
+        }
     }
 }

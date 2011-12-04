@@ -36,7 +36,8 @@
 					<br />
 					<a href="Usuario/RecuperarSenha.aspx">Esqueceu sua senha?</a>
 					<br /><br />
-                    <asp:Button runat="server" Text="Efetuar login" ID="btnLogin" />
+                    <asp:Button runat="server" Text="Efetuar login" ID="btnLogin" 
+                        onclick="btnLogin_Click" />
 				</form>
 			</div>
 		</div>
