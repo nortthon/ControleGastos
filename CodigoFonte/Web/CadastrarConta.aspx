@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastrarConta.aspx.cs" Inherits="Web.CadastrarConta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Content/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="Scripts/jquery-ui.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(function () {
+        $(document).ready(function () {
+            $("#Content_txtData").datepicker({ dateFormat: 'dd/mm/yy', navigationAsDateFormat: true });
+
             $('#Content_txtValor').priceFormat({
                 prefix: 'R$ ',
                 thousandsSeparator: '',
@@ -26,6 +30,12 @@
                 <asp:RequiredFieldValidator runat="server" ID="rfvValor" ControlToValidate="txtValor" Text="*" ErrorMessage="O campo Saldo Inicial é obrigatório." />
             </label><br />
 		    <asp:TextBox runat="server"  ID="txtValor" />					
+		    <br /><br />
+
+            <label for="txtData">Data:
+                <asp:RequiredFieldValidator runat="server" ID="rfvData" ControlToValidate="txtData" Text="*" ErrorMessage="O campo Data é obrigatório." />
+            </label><br />
+		    <asp:TextBox runat="server" ID="txtData" />					
 		    <br /><br />
 
             <label for="txtDescricao">Descrição:</label><br />

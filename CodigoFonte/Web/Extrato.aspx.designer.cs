@@ -22,6 +22,15 @@ namespace Web {
         protected global::System.Web.UI.WebControls.ValidationSummary summary;
         
         /// <summary>
+        /// rblConta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList rblConta;
+        
+        /// <summary>
         /// ddlMes control.
         /// </summary>
         /// <remarks>
@@ -49,12 +58,48 @@ namespace Web {
         protected global::System.Web.UI.WebControls.Button btnAplicar;
         
         /// <summary>
-        /// rblConta control.
+        /// ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList rblConta;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+        
+        /// <summary>
+        /// uplResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel uplResult;
+        
+        /// <summary>
+        /// ltlConta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlConta;
+        
+        /// <summary>
+        /// grdExtrato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdExtrato;
+        
+        /// <summary>
+        /// lblValorTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorTotal;
     }
 }

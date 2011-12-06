@@ -1,85 +1,93 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web.Default" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="Scripts/highcharts.js"></script>
+    <script type="text/javascript">
+    var chart;
+    $(document).ready(function () {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                defaultSeriesType: 'column'
+            },
+            title: {
+                text: 'Gráfico consolidado de gastos mensais'
+            },
+            subtitle: {
+                text: 'ControleDeGastos.com'
+            },
+            xAxis: {
+                categories: [
+						'Jan',
+						'Feb',
+						'Mar',
+						'Apr',
+						'May',
+						'Jun',
+						'Jul',
+						'Aug',
+						'Sep',
+						'Oct',
+						'Nov',
+						'Dec'
+					]
+            },
+            yAxis: {
+                
+                min: 0,
+                title: {
+                    text: 'Valor (R$)'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function () {
+                    return 'Mês: ' +
+							this.x + ':  R$ ' + this.y;
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0,
+                    
+                }
+            },
+            series: [
+            {
+                data: <%= Session["receita"] %>
+            }, {                
+                data: <%= Session["custo"] %>
+            }
+            ]
+        });
+
+
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <h1>Painel de Controle</h1>
-	<hr />
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere fringilla mauris, sed tristique magna ultricies sit amet. Vivamus risus metus, viverra eu auctor sed, posuere quis libero. Aliquam tincidunt bibendum ipsum et tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam commodo iaculis ultricies. In eget nulla at ante sodales suscipit ac vel elit.</p>
-	<fieldset>
-		<legend>Fieldset</legend>
-			<p>Curabitur metus justo, egestas et sagittis in, ornare at nunc. Vivamus nunc sapien, sodales eget lobortis non, accumsan sed diam. Aliquam et nulla id felis suscipit sollicitudin.</p>
-	</fieldset>
-	<br />
-	<form action="#" method="post">
-		<label>
-			Nome<br />
-			<input type="text" />
-		</label>
-		<br /><br />
-		<label>
-			<input type="checkbox" />
-			É oi?
-		</label>
-		<br /><br />
-		<select>
-			<option>Janeiro</option>
-			<option>Fevereiro</option>
-			<option>Março</option>
-			<option>Abril</option>
-			<option>Maio</option>
-			<option>Junho</option>
-			<option>Julho</option>
-			<option>Agosto</option>
-			<option>Setembro</option>
-			<option>Outubro</option>
-			<option>Novembro</option>
-			<option>Dezembro</option>
-		</select>
-	</form>
-	<hr />
-	<table>
-		<thead>
-		<tr>
-			<th>Mês</th>
-			<th>Resposável</th>
-			<th>Caixa</th>
-		</tr>
-		</thead>
-		<tfoot>
-		<tr>
-			<td>Total</td>
-			<td>- - - -</td>
-			<td>R$ 180</td>
-		</tr>
-		</tfoot>
-		<tbody>
-		<tr>
-			<td>Janeiro</td>
-			<td>Fifi</td>
-			<td>R$ 100</td>
-		</tr>
-		<tr>
-			<td>Fevereiro</td>
-			<td>Suckys</td>
-			<td>R$ 80</td>
-		</tr>
-		</tbody>
-	</table>
-	<hr />
-	<ul>
-		<li>Lista</li>
-		<ol>
-			<li>Green</li>
-			<li>Red</li>
-			<ol>
-				<li>Orange</li>
-				<li>Purple</li>
-			</ol>
-			<li>Blue</li>
-		</ol>
-		<li>Microsoft</li>
-		<li>Apple</li>
-		<li>Y7</li>
-		<li>Yotta</li>
-	</ul>
+	<hr /><br />
+    <div id="container" style="width: 780; height: 400px; margin: 0 auto"></div>
+    <form id="Form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+       <asp:UpdatePanel ID="uplResult" runat="server" Visible="false">
+            <ContentTemplate>
+                <fieldset>
+		            <legend>Minhas Contas</legend>
+		            <asp:GridView runat="server" ID="grdContas" Width="100%"
+                        AutoGenerateColumns="false" >
+                        <Columns>                  
+                            <asp:BoundField DataField="Cont_nome" HeaderText="Conta" />  
+                            <asp:BoundField DataField="Cont_descricao" HeaderText="Descrição" />  
+                            <asp:BoundField DataField="Cont_saldo" HeaderText="Saldo Atual" />  
+                        </Columns>
+                    </asp:GridView>                
+	            </fieldset>
+	        </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+ 
 </asp:Content>

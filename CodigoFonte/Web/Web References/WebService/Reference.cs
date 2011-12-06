@@ -45,6 +45,20 @@ namespace Web.WebService {
         
         private System.Threading.SendOrPostCallback ListarCategoriasOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CadastrarTransacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarExtratoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirTransacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExibirSaldoContaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RecuperarSenhaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SaldoGeralMesJsonOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CustoGeralMesJsonOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -106,6 +120,27 @@ namespace Web.WebService {
         
         /// <remarks/>
         public event ListarCategoriasCompletedEventHandler ListarCategoriasCompleted;
+        
+        /// <remarks/>
+        public event CadastrarTransacaoCompletedEventHandler CadastrarTransacaoCompleted;
+        
+        /// <remarks/>
+        public event ListarExtratoCompletedEventHandler ListarExtratoCompleted;
+        
+        /// <remarks/>
+        public event ExcluirTransacaoCompletedEventHandler ExcluirTransacaoCompleted;
+        
+        /// <remarks/>
+        public event ExibirSaldoContaCompletedEventHandler ExibirSaldoContaCompleted;
+        
+        /// <remarks/>
+        public event RecuperarSenhaCompletedEventHandler RecuperarSenhaCompleted;
+        
+        /// <remarks/>
+        public event SaldoGeralMesJsonCompletedEventHandler SaldoGeralMesJsonCompleted;
+        
+        /// <remarks/>
+        public event CustoGeralMesJsonCompletedEventHandler CustoGeralMesJsonCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -175,13 +210,13 @@ namespace Web.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarConta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool CadastrarConta(string nome, decimal saldo, string descricao, int fk_usu_id) {
+        public int CadastrarConta(string nome, decimal saldo, string descricao, int fk_usu_id) {
             object[] results = this.Invoke("CadastrarConta", new object[] {
                         nome,
                         saldo,
                         descricao,
                         fk_usu_id});
-            return ((bool)(results[0]));
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
@@ -362,6 +397,227 @@ namespace Web.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CadastrarTransacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool CadastrarTransacao(int tipo, int conta, int categoria, string data, decimal valor, string descricao) {
+            object[] results = this.Invoke("CadastrarTransacao", new object[] {
+                        tipo,
+                        conta,
+                        categoria,
+                        data,
+                        valor,
+                        descricao});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CadastrarTransacaoAsync(int tipo, int conta, int categoria, string data, decimal valor, string descricao) {
+            this.CadastrarTransacaoAsync(tipo, conta, categoria, data, valor, descricao, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarTransacaoAsync(int tipo, int conta, int categoria, string data, decimal valor, string descricao, object userState) {
+            if ((this.CadastrarTransacaoOperationCompleted == null)) {
+                this.CadastrarTransacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarTransacaoOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarTransacao", new object[] {
+                        tipo,
+                        conta,
+                        categoria,
+                        data,
+                        valor,
+                        descricao}, this.CadastrarTransacaoOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarTransacaoOperationCompleted(object arg) {
+            if ((this.CadastrarTransacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarTransacaoCompleted(this, new CadastrarTransacaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarExtrato", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Extrato[] ListarExtrato(string mes, string ano, int conta) {
+            object[] results = this.Invoke("ListarExtrato", new object[] {
+                        mes,
+                        ano,
+                        conta});
+            return ((Extrato[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarExtratoAsync(string mes, string ano, int conta) {
+            this.ListarExtratoAsync(mes, ano, conta, null);
+        }
+        
+        /// <remarks/>
+        public void ListarExtratoAsync(string mes, string ano, int conta, object userState) {
+            if ((this.ListarExtratoOperationCompleted == null)) {
+                this.ListarExtratoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarExtratoOperationCompleted);
+            }
+            this.InvokeAsync("ListarExtrato", new object[] {
+                        mes,
+                        ano,
+                        conta}, this.ListarExtratoOperationCompleted, userState);
+        }
+        
+        private void OnListarExtratoOperationCompleted(object arg) {
+            if ((this.ListarExtratoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarExtratoCompleted(this, new ListarExtratoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirTransacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool ExcluirTransacao(int transacao) {
+            object[] results = this.Invoke("ExcluirTransacao", new object[] {
+                        transacao});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExcluirTransacaoAsync(int transacao) {
+            this.ExcluirTransacaoAsync(transacao, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirTransacaoAsync(int transacao, object userState) {
+            if ((this.ExcluirTransacaoOperationCompleted == null)) {
+                this.ExcluirTransacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirTransacaoOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirTransacao", new object[] {
+                        transacao}, this.ExcluirTransacaoOperationCompleted, userState);
+        }
+        
+        private void OnExcluirTransacaoOperationCompleted(object arg) {
+            if ((this.ExcluirTransacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirTransacaoCompleted(this, new ExcluirTransacaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExibirSaldoConta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ExibirSaldoConta(int conta) {
+            object[] results = this.Invoke("ExibirSaldoConta", new object[] {
+                        conta});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExibirSaldoContaAsync(int conta) {
+            this.ExibirSaldoContaAsync(conta, null);
+        }
+        
+        /// <remarks/>
+        public void ExibirSaldoContaAsync(int conta, object userState) {
+            if ((this.ExibirSaldoContaOperationCompleted == null)) {
+                this.ExibirSaldoContaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExibirSaldoContaOperationCompleted);
+            }
+            this.InvokeAsync("ExibirSaldoConta", new object[] {
+                        conta}, this.ExibirSaldoContaOperationCompleted, userState);
+        }
+        
+        private void OnExibirSaldoContaOperationCompleted(object arg) {
+            if ((this.ExibirSaldoContaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExibirSaldoContaCompleted(this, new ExibirSaldoContaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RecuperarSenha", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string RecuperarSenha(string email) {
+            object[] results = this.Invoke("RecuperarSenha", new object[] {
+                        email});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RecuperarSenhaAsync(string email) {
+            this.RecuperarSenhaAsync(email, null);
+        }
+        
+        /// <remarks/>
+        public void RecuperarSenhaAsync(string email, object userState) {
+            if ((this.RecuperarSenhaOperationCompleted == null)) {
+                this.RecuperarSenhaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRecuperarSenhaOperationCompleted);
+            }
+            this.InvokeAsync("RecuperarSenha", new object[] {
+                        email}, this.RecuperarSenhaOperationCompleted, userState);
+        }
+        
+        private void OnRecuperarSenhaOperationCompleted(object arg) {
+            if ((this.RecuperarSenhaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RecuperarSenhaCompleted(this, new RecuperarSenhaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaldoGeralMesJson", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SaldoGeralMesJson(int ano, int usuario) {
+            object[] results = this.Invoke("SaldoGeralMesJson", new object[] {
+                        ano,
+                        usuario});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SaldoGeralMesJsonAsync(int ano, int usuario) {
+            this.SaldoGeralMesJsonAsync(ano, usuario, null);
+        }
+        
+        /// <remarks/>
+        public void SaldoGeralMesJsonAsync(int ano, int usuario, object userState) {
+            if ((this.SaldoGeralMesJsonOperationCompleted == null)) {
+                this.SaldoGeralMesJsonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaldoGeralMesJsonOperationCompleted);
+            }
+            this.InvokeAsync("SaldoGeralMesJson", new object[] {
+                        ano,
+                        usuario}, this.SaldoGeralMesJsonOperationCompleted, userState);
+        }
+        
+        private void OnSaldoGeralMesJsonOperationCompleted(object arg) {
+            if ((this.SaldoGeralMesJsonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaldoGeralMesJsonCompleted(this, new SaldoGeralMesJsonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CustoGeralMesJson", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string CustoGeralMesJson(int ano, int usuario) {
+            object[] results = this.Invoke("CustoGeralMesJson", new object[] {
+                        ano,
+                        usuario});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CustoGeralMesJsonAsync(int ano, int usuario) {
+            this.CustoGeralMesJsonAsync(ano, usuario, null);
+        }
+        
+        /// <remarks/>
+        public void CustoGeralMesJsonAsync(int ano, int usuario, object userState) {
+            if ((this.CustoGeralMesJsonOperationCompleted == null)) {
+                this.CustoGeralMesJsonOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCustoGeralMesJsonOperationCompleted);
+            }
+            this.InvokeAsync("CustoGeralMesJson", new object[] {
+                        ano,
+                        usuario}, this.CustoGeralMesJsonOperationCompleted, userState);
+        }
+        
+        private void OnCustoGeralMesJsonOperationCompleted(object arg) {
+            if ((this.CustoGeralMesJsonCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CustoGeralMesJsonCompleted(this, new CustoGeralMesJsonCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -467,6 +723,87 @@ namespace Web.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Extrato {
+        
+        private int idField;
+        
+        private string dataField;
+        
+        private string tipoField;
+        
+        private string categoriaField;
+        
+        private string descricaoField;
+        
+        private string valorField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                this.tipoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class Categoria {
         
         private int cat_idField;
@@ -518,7 +855,7 @@ namespace Web.WebService {
         
         private string cont_nomeField;
         
-        private decimal cont_saldoField;
+        private string cont_saldoField;
         
         private string cont_descricaoField;
         
@@ -545,7 +882,7 @@ namespace Web.WebService {
         }
         
         /// <remarks/>
-        public decimal Cont_saldo {
+        public string Cont_saldo {
             get {
                 return this.cont_saldoField;
             }
@@ -645,10 +982,10 @@ namespace Web.WebService {
         }
         
         /// <remarks/>
-        public bool Result {
+        public int Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
+                return ((int)(this.results[0]));
             }
         }
     }
@@ -779,6 +1116,188 @@ namespace Web.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Categoria[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void CadastrarTransacaoCompletedEventHandler(object sender, CadastrarTransacaoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CadastrarTransacaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CadastrarTransacaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void ListarExtratoCompletedEventHandler(object sender, ListarExtratoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarExtratoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarExtratoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Extrato[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Extrato[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void ExcluirTransacaoCompletedEventHandler(object sender, ExcluirTransacaoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExcluirTransacaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExcluirTransacaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void ExibirSaldoContaCompletedEventHandler(object sender, ExibirSaldoContaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExibirSaldoContaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExibirSaldoContaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void RecuperarSenhaCompletedEventHandler(object sender, RecuperarSenhaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RecuperarSenhaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RecuperarSenhaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void SaldoGeralMesJsonCompletedEventHandler(object sender, SaldoGeralMesJsonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SaldoGeralMesJsonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SaldoGeralMesJsonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    public delegate void CustoGeralMesJsonCompletedEventHandler(object sender, CustoGeralMesJsonCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CustoGeralMesJsonCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CustoGeralMesJsonCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

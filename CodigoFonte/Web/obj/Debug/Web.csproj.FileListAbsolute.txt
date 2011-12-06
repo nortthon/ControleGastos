@@ -3,5 +3,5 @@ C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Web.pdb
 C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\Web.dll
 C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\obj\Debug\Web.pdb
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Entidades.dll
-C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Entidades.pdb
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Email.dll
+C:\Users\Lucas Augusto\Desktop\ControleDeGastos\CodigoFonte\Web\bin\Email.pdb

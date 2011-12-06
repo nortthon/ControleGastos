@@ -67,6 +67,24 @@ namespace Web {
         protected global::System.Web.UI.WebControls.TextBox txtValor;
         
         /// <summary>
+        /// rfvData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvData;
+        
+        /// <summary>
+        /// txtData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtData;
+        
+        /// <summary>
         /// txtDescricao control.
         /// </summary>
         /// <remarks>

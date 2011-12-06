@@ -27,14 +27,19 @@ namespace Web
         {
             if (IsValid)
             {
-                Int32 usuario = Convert.ToInt32(Session["userId"]);
+                Int32 idConta = Convert.ToInt32(this.ddlConta.SelectedValue);
                 decimal valor = Convert.ToDecimal(this.txtValor.Text.Replace("+ R$ ", ""));
+                string data = this.txtData.Text;
 
-                if (ws.CadastrarReceita(usuario, valor))
+                if (ws.CadastrarReceita(idConta, valor))
                 {
-                    this.txtValor.Text = "";
-                    this.ddlConta.SelectedValue = "";
-                    this.lblSuccess.Text = "Nova categoria criada com sucesso.";
+                    if (ws.CadastrarTransacao(4, idConta, 1, data, valor, "Inclusão no saldo"))
+                    {
+                        this.txtValor.Text = "";
+                        this.txtData.Text = "";
+                        this.ddlConta.SelectedValue = "";
+                        this.lblSuccess.Text = "Nova categoria criada com sucesso.";
+                    }
                 }
                 else
                 {

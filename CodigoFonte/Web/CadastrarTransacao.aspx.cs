@@ -31,7 +31,30 @@ namespace Web
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            if (IsValid)
+            {
+                Int32 tipo = Convert.ToInt32(this.rblTipo.Text);
+                Int32 conta = Convert.ToInt32(this.ddlConta.Text);
+                Int32 categoria = Convert.ToInt32(this.ddlCategoria.Text);
+                string data = this.txtData.Text;
+                decimal valor = Convert.ToDecimal(this.txtValor.Text.Replace("- R$ ", ""));
+                string descricao = this.txtDescricao.Text;
 
+                if (ws.CadastrarTransacao(tipo, conta, categoria, data, valor, descricao))
+                {
+                    this.rblTipo.SelectedValue = "";
+                    this.ddlConta.SelectedValue = "";
+                    this.ddlCategoria.SelectedValue = "";
+                    this.txtData.Text = "";
+                    this.txtValor.Text = "";
+                    this.txtDescricao.Text = "";
+                    this.lblSuccess.Text = "Transação salva com sucesso.";
+                }
+                else
+                {
+                    Response.Redirect("~/Error.aspx");
+                }
+            }
         }
     }
 }

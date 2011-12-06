@@ -29,7 +29,8 @@
                     <br /><asp:TextBox runat="server"  ID="txtEmail" />					
 					<br /><br />
 
-                    <asp:Button runat="server" Text="Enviar" ID="btnEnviar" />
+                    <asp:Button runat="server" Text="Enviar" ID="btnEnviar" 
+                        onclick="btnEnviar_Click" />
                     <asp:Button ID="Button1" runat="server" Text="Cancelar" PostBackUrl="~/Login.aspx" CausesValidation="false" />
 				</form>
 			</div>

@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastrarTransacao.aspx.cs" Inherits="Web.CadastrarTransacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="Content/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="Scripts/jquery-ui.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#Content_txtData").datepicker({ dateFormat: 'dd/mm/yy', navigationAsDateFormat: true });
 
         $('#Content_txtValor').priceFormat({
@@ -19,6 +19,7 @@
     <div style="margin-left:80px">  
         <form id="Form1" runat="server" method="post"> 
             <asp:ValidationSummary runat="server" ID="summary" />
+            <asp:Label runat="server" ID="lblSuccess" />
             <label for="txtDescricao">Tipo:
                 <asp:RequiredFieldValidator runat="server" ID="rfvTipo"  ControlToValidate="rblTipo" Text="*" ErrorMessage="O campo Tipo é obrigatório." />
             </label><br />

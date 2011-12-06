@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Controle de Gastos</title>
     <link rel="stylesheet" media="screen" type="text/css" href="~/Content/default.css" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/") %>Scripts/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="<%= ResolveClientUrl("~/") %>Scripts/jquery.price_format.1.5.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>

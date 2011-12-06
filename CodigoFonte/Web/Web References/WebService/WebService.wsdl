@@ -57,7 +57,7 @@
       <s:element name="CadastrarContaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="CadastrarContaResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CadastrarContaResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -114,7 +114,7 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Cont_id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Cont_nome" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Cont_saldo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cont_saldo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Cont_descricao" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Fk_usu_id" type="s:int" />
         </s:sequence>
@@ -161,6 +161,128 @@
           <s:element minOccurs="1" maxOccurs="1" name="Fk_usu_id" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="CadastrarTransacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="conta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="categoria" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="descricao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CadastrarTransacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CadastrarTransacaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarExtrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ano" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="conta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarExtratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarExtratoResult" type="tns:ArrayOfExtrato" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExtrato">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Extrato" nillable="true" type="tns:Extrato" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Extrato">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExcluirTransacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="transacao" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirTransacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExcluirTransacaoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExibirSaldoConta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="conta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExibirSaldoContaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExibirSaldoContaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarSenha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecuperarSenhaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecuperarSenhaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaldoGeralMesJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ano" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaldoGeralMesJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaldoGeralMesJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustoGeralMesJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ano" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usuario" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustoGeralMesJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustoGeralMesJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CadastrarUsuarioSoapIn">
@@ -211,6 +333,48 @@
   <wsdl:message name="ListarCategoriasSoapOut">
     <wsdl:part name="parameters" element="tns:ListarCategoriasResponse" />
   </wsdl:message>
+  <wsdl:message name="CadastrarTransacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:CadastrarTransacao" />
+  </wsdl:message>
+  <wsdl:message name="CadastrarTransacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:CadastrarTransacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarExtratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarExtrato" />
+  </wsdl:message>
+  <wsdl:message name="ListarExtratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarExtratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirTransacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirTransacao" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirTransacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirTransacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExibirSaldoContaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExibirSaldoConta" />
+  </wsdl:message>
+  <wsdl:message name="ExibirSaldoContaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExibirSaldoContaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarSenhaSoapIn">
+    <wsdl:part name="parameters" element="tns:RecuperarSenha" />
+  </wsdl:message>
+  <wsdl:message name="RecuperarSenhaSoapOut">
+    <wsdl:part name="parameters" element="tns:RecuperarSenhaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaldoGeralMesJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SaldoGeralMesJson" />
+  </wsdl:message>
+  <wsdl:message name="SaldoGeralMesJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SaldoGeralMesJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustoGeralMesJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:CustoGeralMesJson" />
+  </wsdl:message>
+  <wsdl:message name="CustoGeralMesJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:CustoGeralMesJsonResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="CadastrarUsuario">
       <wsdl:input message="tns:CadastrarUsuarioSoapIn" />
@@ -243,6 +407,34 @@
     <wsdl:operation name="ListarCategorias">
       <wsdl:input message="tns:ListarCategoriasSoapIn" />
       <wsdl:output message="tns:ListarCategoriasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarTransacao">
+      <wsdl:input message="tns:CadastrarTransacaoSoapIn" />
+      <wsdl:output message="tns:CadastrarTransacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarExtrato">
+      <wsdl:input message="tns:ListarExtratoSoapIn" />
+      <wsdl:output message="tns:ListarExtratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTransacao">
+      <wsdl:input message="tns:ExcluirTransacaoSoapIn" />
+      <wsdl:output message="tns:ExcluirTransacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExibirSaldoConta">
+      <wsdl:input message="tns:ExibirSaldoContaSoapIn" />
+      <wsdl:output message="tns:ExibirSaldoContaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarSenha">
+      <wsdl:input message="tns:RecuperarSenhaSoapIn" />
+      <wsdl:output message="tns:RecuperarSenhaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaldoGeralMesJson">
+      <wsdl:input message="tns:SaldoGeralMesJsonSoapIn" />
+      <wsdl:output message="tns:SaldoGeralMesJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustoGeralMesJson">
+      <wsdl:input message="tns:CustoGeralMesJsonSoapIn" />
+      <wsdl:output message="tns:CustoGeralMesJsonSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -312,6 +504,69 @@
     </wsdl:operation>
     <wsdl:operation name="ListarCategorias">
       <soap:operation soapAction="http://tempuri.org/ListarCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarTransacao">
+      <soap:operation soapAction="http://tempuri.org/CadastrarTransacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarExtrato">
+      <soap:operation soapAction="http://tempuri.org/ListarExtrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTransacao">
+      <soap:operation soapAction="http://tempuri.org/ExcluirTransacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExibirSaldoConta">
+      <soap:operation soapAction="http://tempuri.org/ExibirSaldoConta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarSenha">
+      <soap:operation soapAction="http://tempuri.org/RecuperarSenha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaldoGeralMesJson">
+      <soap:operation soapAction="http://tempuri.org/SaldoGeralMesJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustoGeralMesJson">
+      <soap:operation soapAction="http://tempuri.org/CustoGeralMesJson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -394,13 +649,76 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CadastrarTransacao">
+      <soap12:operation soapAction="http://tempuri.org/CadastrarTransacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarExtrato">
+      <soap12:operation soapAction="http://tempuri.org/ListarExtrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTransacao">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirTransacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExibirSaldoConta">
+      <soap12:operation soapAction="http://tempuri.org/ExibirSaldoConta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarSenha">
+      <soap12:operation soapAction="http://tempuri.org/RecuperarSenha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaldoGeralMesJson">
+      <soap12:operation soapAction="http://tempuri.org/SaldoGeralMesJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustoGeralMesJson">
+      <soap12:operation soapAction="http://tempuri.org/CustoGeralMesJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WebService">
     <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
-      <soap:address location="http://localhost:51159/WebService/WebService.asmx" />
+      <soap:address location="http://localhost:54472/WebService/WebService.asmx" />
     </wsdl:port>
     <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
-      <soap12:address location="http://localhost:51159/WebService/WebService.asmx" />
+      <soap12:address location="http://localhost:54472/WebService/WebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

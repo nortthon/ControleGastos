@@ -20,17 +20,23 @@ namespace Web
             {
                 string nomeConta = this.txtConta.Text;
                 string descricao = this.txtDescricao.Text;
-                decimal saldo = Convert.ToDecimal(this.txtValor.Text.Replace("R$ ", ""));
+                decimal saldo = Convert.ToDecimal(this.txtValor.Text.Replace("R$ ", "").Replace(",", "."));
+                string data = this.txtData.Text;
                 Int32 usuario = Convert.ToInt32(Session["userId"]);
 
                 WebService.WebService ws = new WebService.WebService();
 
-                if (ws.CadastrarConta(nomeConta, saldo, descricao, usuario))
+                Int32 idConta = ws.CadastrarConta(nomeConta, saldo, descricao, usuario);
+
+                if (idConta > 0)
                 {
-                    this.txtConta.Text = "";
-                    this.txtDescricao.Text = "";
-                    this.txtValor.Text = "";
-                    this.lblSuccess.Text = "Nova conta criada com sucesso.";
+                    if (ws.CadastrarTransacao(4, idConta, 1, data, saldo, "Saldo Inicial"))
+                    {
+                        this.txtConta.Text = "";
+                        this.txtDescricao.Text = "";
+                        this.txtValor.Text = "";
+                        this.lblSuccess.Text = "Nova conta criada com sucesso.";
+                    }
                 }
                 else
                 {

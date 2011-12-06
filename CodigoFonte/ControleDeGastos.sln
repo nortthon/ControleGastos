@@ -25,7 +25,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService\",
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "51159"
+		VWDPort = "54472"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

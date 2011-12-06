@@ -12,7 +12,11 @@
     <br />
     <form runat="server" method="post">
         <asp:ValidationSummary runat="server" ID="summary" />
-		<label>Mês: &nbsp;&nbsp; </label>
+		<label for="txtDescricao">Contas: </label>
+        <br />
+        <asp:DropDownList runat="server" ID="rblConta" />
+        <br />
+        <label>Mês: &nbsp;&nbsp; </label><br />
 		<asp:DropDownList runat="server" ID="ddlMes" Width="100px">
             <asp:ListItem Text="Janeiro" Value="01" />
             <asp:ListItem Text="Fevereiro" Value="02" />
@@ -30,102 +34,38 @@
         &nbsp;&nbsp;
         <asp:TextBox Width="70px" MaxLength="4" runat="server" ID="txtAno" />
         &nbsp;&nbsp;
-        <asp:Button runat="server" Text="Aplicar Filtro" ID="btnAplicar" />
-        <br />
-        <label for="txtDescricao">Contas: </label>
-        <br />
-        <asp:CheckBoxList runat="server" ID="rblConta" CssClass="bkbranco" BorderStyle="None" RepeatColumns="4">
-            <asp:ListItem Text="Conta Corrente" Value="1" />
-            <asp:ListItem Text="Poupança" Value="2" />
-        </asp:CheckBoxList>
-	</form>
+        <asp:Button runat="server" Text="Aplicar Filtro" ID="btnAplicar" 
+            onclick="btnAplicar_Click" />
+        
+        
+	
+    <br />
     <hr />
     <br />
-    <fieldset>
-		<legend>Conta Corrente</legend>
-		<table width="100%">
-		    <thead>
-		        <tr>
-			        <th>Data</th>
-			        <th>Tipo</th>
-			        <th>Categoria</th>
-                    <th>Descrição</th>
-			        <th>Valor</th>
-                    <th>Ações</th>
-		        </tr>
-		    </thead>
-		    <tfoot>
-		        <tr>
-			        <td></td>
-			        <td></td>
-                    <td></td>
-                    <td></td>
-			        <td>Total: R$ 18000,00</td>
-                    <td></td>
-		        </tr>
-		    </tfoot>
-		    <tbody>
-		        <tr>
-			        <td>10/10/2011</td>
-			        <td>Crédito</td>
-			        <td>Refeição</td>
-                    <td>Almoço de negócios com o presidente da Google.</td>
-                    <td>R$ 2180,00</td>
-                    <td><a href="">Excluir</a></td>
-		        </tr>
-		        <tr>
-			        <td>12/10/2011</td>
-			        <td>Débito</td>
-			        <td>Refeição</td>
-                    <td>Almoço com os filhos na Disney. Dia das crianças</td>
-                    <td>R$ 2480,00</td>
-                    <td><a href="">Excluir</a></td>
-		        </tr>
-		    </tbody>
-	    </table>
-	</fieldset>
-    <br />
-    <fieldset>
-		<legend>Poupança</legend>
-	    <table width="100%">
-		    <thead>
-		        <tr>
-			        <th>Data</th>
-			        <th>Tipo</th>
-			        <th>Categoria</th>
-                    <th>Descrição</th>
-			        <th>Valor</th>
-                    <th>Ações</th>
-		        </tr>
-		    </thead>
-		    <tfoot>
-		        <tr>
-			        <td></td>
-			        <td></td>
-                    <td></td>
-                    <td></td>
-			        <td>Total: R$ 41800,90</td>
-                    <td></td>
-		        </tr>
-		    </tfoot>
-		    <tbody>
-		        <tr>
-			        <td>10/10/2011</td>
-			        <td>Crédito</td>
-			        <td>Refeição</td>
-                    <td>Almoço de negócios com o presidente da Google.</td>
-                    <td>R$ 2180,00</td>
-                    <td><a href="">Excluir</a></td>
-		        </tr>
-		        <tr>
-			        <td>12/10/2011</td>
-			        <td>Débito</td>
-			        <td>Refeição</td>
-                    <td>Almoço com os filhos na Disney. Dia das crianças</td>
-                    <td>R$ 2480,00</td>
-                    <td><a href="">Excluir</a></td>
-		        </tr>
-		    </tbody>
-	    </table>
-	</fieldset>
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+   <asp:UpdatePanel ID="uplResult" runat="server" Visible="false">
+        <ContentTemplate>
+            <fieldset>
+		        <legend><asp:Literal ID="ltlConta" runat="server" /></legend>
+		        <asp:GridView runat="server" ID="grdExtrato" Width="100%"
+                    AutoGenerateColumns="false" OnRowCommand="grdExtrato_RowCommand" >
+                    <Columns>
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center" ItemStyle-Width="18">  
+                            <ItemTemplate>  
+                                <asp:ImageButton runat="server" ID="imgDeletar" BorderWidth="0" ImageUrl="~/Images/icone_excluir.gif"
+                                CommandArgument='<%# Eval("Id").ToString() %>' CommandName='<%# Eval("Valor").ToString() %>' CausesValidation="false" />  
+                            </ItemTemplate>  
+                        </asp:TemplateField>   
+                        <asp:BoundField DataField="Data" HeaderText="Data" />  
+                        <asp:BoundField DataField="Tipo" HeaderText="Tipo" />  
+                        <asp:BoundField DataField="Categoria" HeaderText="Categoria" />  
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" />  
+                        <asp:BoundField DataField="Valor" HeaderText="Valor" />
+                    </Columns>
+                </asp:GridView>
+                <asp:Label ID="lblValorTotal" runat="server" CssClass="bold alignright p5" />
+	        </fieldset> 
+         </ContentTemplate>
+    </asp:UpdatePanel>  
+    </form>
 </asp:Content>

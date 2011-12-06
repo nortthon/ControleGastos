@@ -21,8 +21,8 @@ namespace Entidades
             set { cont_nome = value; }
         }
 
-        private decimal cont_saldo;
-        public decimal Cont_saldo
+        private string cont_saldo;
+        public string Cont_saldo
         {
             get { return cont_saldo; }
             set { cont_saldo = value; }

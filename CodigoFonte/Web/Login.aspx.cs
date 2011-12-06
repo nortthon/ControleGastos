@@ -29,16 +29,16 @@ namespace Web
             }
             else
             {
-                if (usuario.Usu_status == 1)
-                {
+                //if (usuario.Usu_status == 1)
+                //{
                     Session["userId"] = usuario.Usu_id;
                     Session["userName"] = usuario.Usu_nome;
                     FormsAuthentication.RedirectFromLoginPage(login, true);
-                }
-                else
-                {
-                    Response.Redirect("~/Usuario/ContaNaoAtivada.aspx");
-                }
+                //}
+                //else
+                //{
+                //    Response.Redirect("~/Usuario/ContaNaoAtivada.aspx");
+                //}
             }
         }
     }

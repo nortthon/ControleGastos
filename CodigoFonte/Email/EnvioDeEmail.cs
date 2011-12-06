@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Diagnostics;
 using System.Web.UI;
 
-namespace DIAD.ControleDeGastos.Email
+namespace Email
 {
     public class EnvioDeEmail : Page
     {
@@ -68,21 +68,9 @@ namespace DIAD.ControleDeGastos.Email
                 objSMTP.Send(objMsg);
                 return true;
             }
-            catch (Exception ex1)
+            catch
             {
-                try
-                {
-                    EventLog.WriteEntry("Email.EnvioDeEmail - método dispararEmail", ex1.Message);
-                }
-                catch (Exception ex2)
-                {
-                    throw ex2;
-                }
-                throw ex1;
-            }
-            finally
-            {
-
+                return false;
             }
         }
     }

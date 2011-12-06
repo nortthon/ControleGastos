@@ -31,6 +31,15 @@ namespace Web {
         protected global::System.Web.UI.WebControls.ValidationSummary summary;
         
         /// <summary>
+        /// lblSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
+        
+        /// <summary>
         /// rfvTipo control.
         /// </summary>
         /// <remarks>
